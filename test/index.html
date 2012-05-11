@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="../lib/kissy.js"></script>
+    <script src="../lib/jamine.js"></script>
+    <script src="../lib/jamine-html.js"></script>
+    <script src="../lib/event-simulate.js"></script>
+    <script src="../lib/matchers.js"></script>
+
+</head>
+<body>
+<style>
+    .red{
+        color:red;
+    }
+
+</style>
+<a id="target"></a>
+<script>
+    //功能
+    (function () {
+        var DOM = KISSY.DOM;
+        var el = DOM.get("#target");
+        el.on("click", function () {
+            setTimeout(function () {
+                DOM.addClass(el, "red")
+            }, 100);
+        })
+
+
+    })();
+
+</script>
+
+<script>
+    //测试
+    (function () {
+        describe("测试ui变化", function () {
+            var DOM = KISSY.DOM;
+            var el = DOM.get("#target");
+            it("id为click的元素点击后增一个名为red的class", function () {
+                waitsChange(function () {
+                    simulate(el, "click")
+                }, except(el).toBeHasClass("red"))
+
+            })
+
+
+        })
+
+    })();
+</script>
+</body>
+</html>
