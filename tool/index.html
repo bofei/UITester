@@ -3,9 +3,31 @@
 <head>
 	<meta charset="gbk">
 	<title>UI Tester</title>
+    <script src="http://a.tbcdn.cn/s/kissy/1.2.0/seed.js"></script>
+    <script src="task.js"></script>
 </head>
 <body>
-	
-    ui tester
+    <div class="tasks" id="J_Task">
+        <input type="button" value="添加任务" id="J_AddTask"/>
+        <input type="button" value="开始测试" id="J_StartTest" />
+        
+        <form action="" class="task-config J_TaskConfig">
+            <table>
+            	<tr>
+            		<th>测试网址</th>
+            		<th>用例地址</th>
+                    <th>操作</th>
+            	</tr>
+                <tr>
+                	<td><input type="text" class="J_TestURI" /></td>
+                	<td><input type="" class="J_CaseURI" /></td>
+                    <td>
+                        <a href="" class="J_RemoveTask">移除任务</a>
+                        <span class="J_Status">等待/测试中/已完成</span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
 </body>
 </html>

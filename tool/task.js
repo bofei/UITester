@@ -60,7 +60,7 @@ KISSY.add('UITester', function (S){
 
         // 注入测试脚本
         injectResource: function (){
-        },
+        }
 
     };
 
