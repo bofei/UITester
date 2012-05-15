@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="gbk">
     <title></title>
+    <link rel="stylesheet" type="text/css" href="../lib/jasmine.css">
     <script src="../lib/kissy.js"></script>
-    <script src="../lib/jamine.js"></script>
-    <script src="../lib/jamine-html.js"></script>
+    <script src="../lib/jasmine.js"></script>
+    <script src="../lib/jasmine-html.js"></script>
     <script src="../lib/event-simulate.js"></script>
-    <script src="../lib/matchers.js"></script>
+    <script src="../lib/matcher.js"></script>
 
 </head>
 <body>
@@ -16,40 +18,78 @@
     }
 
 </style>
-<a id="target"></a>
+<a id="target" class="default">test</a>
 <script>
-    //鍔熻兘
+    //功能
     (function () {
-        var DOM = KISSY.DOM;
-        var el = DOM.get("#target");
+        var $ = KISSY.all;
+        var el = $("#target");
         el.on("click", function () {
             setTimeout(function () {
-                DOM.addClass(el, "red")
+                el.addClass("red")
+                el.addClass("blue")
             }, 100);
         })
 
 
     })();
-
 </script>
-
+<!-- test-->
 <script>
-    //娴嬭瘯
-    (function () {
-        describe("娴嬭瘯ui鍙樺寲", function () {
-            var DOM = KISSY.DOM;
-            var el = DOM.get("#target");
-            it("id涓篶lick鐨勫厓绱犵偣鍑诲悗澧炰竴涓悕涓簉ed鐨刢lass", function () {
-                waitsChange(function () {
-                    simulate(el, "click")
-                }, except(el).toBeHasClass("red"))
+    describe("测试ui变化", function () {
+        var DOM = KISSY.DOM;
+        var el = DOM.get("#target");
+        it("id为target的元素有一个名为default的className", function () {
+                expect(el).hasClass("default")
+        })
 
-            })
+        it("id为target的元素点击后增加名为red的className", function () {
+            simulate(el, 'click');
+            waitsMatchers(function () {
+                expect(el).hasClass("red")
+                expect(el).hasClass("blue")
+            }, 200);
 
 
         })
 
+
+    });
+
+</script>
+
+<script>
+
+    (function () {
+        var jasmineEnv = jasmine.getEnv();
+        jasmineEnv.updateInterval = 1000;
+
+        var htmlReporter = new jasmine.HtmlReporter();
+
+        jasmineEnv.addReporter(htmlReporter);
+
+        jasmineEnv.specFilter = function (spec) {
+            return htmlReporter.specFilter(spec);
+        };
+
+        var currentWindowOnload = window.onload;
+
+        window.onload = function () {
+            if (currentWindowOnload) {
+                currentWindowOnload();
+            }
+            execJasmine();
+        };
+
+        function execJasmine() {
+            jasmineEnv.execute();
+        }
+
     })();
+
+
+    //测试
+
 </script>
 </body>
 </html>
