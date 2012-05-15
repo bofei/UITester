@@ -18,7 +18,7 @@
     }
 
 </style>
-<a id="target">test</a>
+<a id="target" class="default">test</a>
 <script>
     //功能
     (function () {
@@ -27,32 +27,40 @@
         el.on("click", function () {
             setTimeout(function () {
                 el.addClass("red")
+                el.addClass("blue")
             }, 100);
         })
 
 
     })();
+</script>
+<!-- test-->
+<script>
+    describe("测试ui变化", function () {
+        var DOM = KISSY.DOM;
+        var el = DOM.get("#target");
+        it("id为target的元素有一个名为default的className", function () {
+                expect(el).hasClass("default")
+        })
 
-  describe("测试ui变化", function () {
-      var DOM = KISSY.DOM;
-      var el = DOM.get("#target");
-
-      it("id为click的元素点击后增一个名为red的class", function () {
-
-          iexpect(function(){
-              simulate(el,'click');
-          },100).hasClass(el,'red');
-
-      })
+        it("id为target的元素点击后增加名为red的className", function () {
+            simulate(el, 'click');
+            waitsMatchers(function () {
+                expect(el).hasClass("red")
+                expect(el).hasClass("blue")
+            }, 200);
 
 
-  });
+        })
+
+
+    });
 
 </script>
 
 <script>
 
-    (function() {
+    (function () {
         var jasmineEnv = jasmine.getEnv();
         jasmineEnv.updateInterval = 1000;
 
@@ -60,13 +68,13 @@
 
         jasmineEnv.addReporter(htmlReporter);
 
-        jasmineEnv.specFilter = function(spec) {
+        jasmineEnv.specFilter = function (spec) {
             return htmlReporter.specFilter(spec);
         };
 
         var currentWindowOnload = window.onload;
 
-        window.onload = function() {
+        window.onload = function () {
             if (currentWindowOnload) {
                 currentWindowOnload();
             }
