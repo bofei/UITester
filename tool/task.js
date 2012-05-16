@@ -1,69 +1,115 @@
 KISSY.add('UITester', function (S){
 
     var DOM = S.DOM, Event = S.Event, IO = S.IO,
-        jasmine, uiTester,
-        doc = document,
-        win = window;
+        win = window, doc = document,
+        uiTester;
 
     uiTester = {
         configs: {
-            taskForm: null,
+            defaultInjectScripts: {
+                jasmine: '../lib/jasmine.js',
+                jasmineHtml: '../lib/jasmine-html.js',
+                eventSimulate: '../lib/event-simulate.js'
+            },
+
             taskQueues: [
+
                 /**
+                 * Êı¾İËµÃ÷:
                  *
-                 *
+                 * {
+                 *   testURI: 'http://www.taobao.com/',
+                 *   caseURIs: [
+                 *      'http://xxx/test1.js',
+                 *      'http://xxx/test2.js',
+                 *      'http://xxx/test3.js'
+                 *      ],
+                 *   status: 'wait' // ¿ÉÈ¡µÄÖµÓĞ: waiting, testing, successed, failed
+                 * }, {
+                 *   testURI: 'http://www.taobao.com/',
+                 *   caseURI: ['http://xxx/test4.js'],
+                 *   status: 'finished'
+                 * }, {
+                 *   testURI: 'http://www.taobao.com/',
+                 *   caseURI: ['http://xxx/test3.js'],
+                 *   status: 'finished'
+                 * }
                  *
                  */
-            ],
 
+            ]
         },
 
-        // åˆå§‹åŒ–æµ‹è¯•æ¨¡å—
+        // ³õÊ¼»¯²âÊÔÄ£¿é
         init: function (){
             var host = this;
 
+            // °ó¶¨ÊÂ¼ş
+            host.bindEvent();
+            
         },
 
-        // åˆå§‹åŒ– postMessage åŠŸèƒ½
+        // ³õÊ¼»¯ postMessage ¹¦ÄÜ
         _initPostMessage: function (){
         },
 
-        // å‘ä»»åŠ¡é˜Ÿåˆ—æ·»åŠ ä»»åŠ¡
+        // ÏòÈÎÎñ¶ÓÁĞÌí¼ÓÈÎÎñ
         _addToTaskQueue: function (){
         },
 
-         // ä»ä»»åŠ¡é˜Ÿåˆ—ä¸­ç§»é™¤ä»»åŠ¡
+         // ´ÓÈÎÎñ¶ÓÁĞÖĞÒÆ³ıÈÎÎñ
         _removeFromTaskQueue: function (){
         },
 
-        // ä¸ºæ•´ä¸ªæµ‹è¯•æ¡†æ¶ç»‘å®šäº‹ä»¶
+        // ÎªÕû¸ö²âÊÔ¿ò¼Ü°ó¶¨ÊÂ¼ş
         bindEvent: function (){
+            var host = this;
+
+            host._bindTaskConfigEvent();
         },
 
-        // å¯åŠ¨é˜Ÿåˆ—ä¸­çš„ä»»åŠ¡
-        startTask: function (){
+        _bindTaskConfigEvent: function (){
+            var host = this;
+
+            Event.on(document, 'click', function (ev){
+                var target = ev.target;
+
+                if (DOM.hasClass(target, 'J_AddTask')){
+                    host._addTask(ev, target);
+                }
+
+                if (DOM.hasClass(target, 'J_StartTest')){
+                    host._startTask(ev, target);
+                }
+
+            });
+        },
+
+        // Æô¶¯¶ÓÁĞÖĞµÄÈÎÎñ
+        _startTask: function (ev, target){
+            ev.preventDefault();
+        },
+
+        _addTask: function (ev, target){
+            ev.preventDefault();
+
+            var parentNode = DOM.parent(target, '.J_TaskConfig'),
+                targetToBeCloned = DOM.get('.J_CaseURI', parentNode),
+                neoNode = DOM.clone(targetToBeCloned);
+
+            neoNode.value = '';
+
+            DOM.insertBefore(neoNode, targetToBeCloned);
         },
         
-        // åˆ›å»º iframe
-        createIframe: function (){
-            var neoIframe = DOM.create('iframe');
-            
-            DOM.css(neoIframe, {
-                position: 'absolute',
-                left: '-9999px'
-            });
-
-            document.body,appendChild(neoIframe);
-
-            return neoIframe;
-        },
-
-        // æ³¨å…¥æµ‹è¯•è„šæœ¬
+        // ×¢Èë²âÊÔ½Å±¾
         injectResource: function (){
         }
 
     };
 
 
-    uiTester.init();
+    S.ready(function (){
+        uiTester.init();
+    });
 });
