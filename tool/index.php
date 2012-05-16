@@ -16,6 +16,7 @@
     for ($idx = 0; $idx < 4; $idx++){
         echo('
             <div class="task J_Task">
+
                 <form action="" class="task-config J_TaskConfig">
                     <table>
                         <tr>
@@ -30,7 +31,7 @@
                                 <input type="text" class="test-input J_CaseURI" />
                             </td>
                             <td>
-                                <a class="J_AddTask" href="">[+]</a>
+                                <a class="J_AddCase" href="">[+]</a>
                             </td>
                         </tr>
                     </table>
@@ -38,11 +39,11 @@
                     <a href="" class="J_StartTest">启动测试</a>
                 </form>
 
-                <iframe src="" frameborder="0" class="test-frame J_TestFrame"></iframe>
-
                 <div class="J_TaskResult task-result">
                     我是一条测试报告
                 </div>
+
+                <iframe src="" frameborder="0" class="test-frame J_TestFrame"></iframe>
             </div>
         ');
     }

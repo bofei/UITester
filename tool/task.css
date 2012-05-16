@@ -23,6 +23,11 @@
     margin-bottom: 5px;
 }
 
+.task .test-frame {
+    //position: absolute;
+    //left: -100000px;
+}
+
 .task th,
 .task td {
     vertical-align: top;

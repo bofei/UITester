@@ -6,11 +6,11 @@ KISSY.add('UITester', function (S){
 
     uiTester = {
         configs: {
-            defaultInjectScripts: {
-                jasmine: '../lib/jasmine.js',
-                jasmineHtml: '../lib/jasmine-html.js',
-                eventSimulate: '../lib/event-simulate.js'
-            },
+            defaultInjectScripts: [
+                'http://uitester.taobao.com/lib/jasmine.js',
+                'http://uitester.taobao.com/lib/jasmine-html.js',
+                'http://uitester.taobao.com/lib/event-simulate.js'
+            ],
 
             taskQueues: [
 
@@ -42,6 +42,8 @@ KISSY.add('UITester', function (S){
 
         // 初始化测试模块
         init: function (){
+            document.domain = 'taobao.com';
+
             var host = this;
 
             // 绑定事件
@@ -72,25 +74,57 @@ KISSY.add('UITester', function (S){
             var host = this;
 
             Event.on(document, 'click', function (ev){
-                var target = ev.target;
+                var target = ev.target,
+                    parentNode;
 
-                if (DOM.hasClass(target, 'J_AddTask')){
-                    host._addTask(ev, target);
+                if (DOM.hasClass(target, 'J_AddCase')){
+                    parentNode = DOM.parent(target, '.J_Task');
+                    host._addCaseInput(ev, target, parentNode);
                 }
 
                 if (DOM.hasClass(target, 'J_StartTest')){
-                    host._startTask(ev, target);
+                    parentNode = DOM.parent(target, '.J_Task');
+                    host._startTask(ev, target, parentNode);
                 }
 
             });
         },
 
         // 启动队列中的任务
-        _startTask: function (ev, target){
+        _startTask: function (ev, target, parentNode){
             ev.preventDefault();
+
+            var host = this;
+
+            var testURI, 
+                caseURIs = [],
+                testFrame;
+
+            testURI = DOM.get('.J_TestURI', parentNode);
+            testFrame = DOM.get('.J_TestFrame', parentNode);
+
+            S.each(DOM.query('.J_CaseURI', parentNode), function (el){
+                if (S.trim(el.value) !== ''){
+                    caseURIs.push(el.value);
+                }
+            });
+
+            var cfg = {
+                testURI: testURI.value,
+                caseURIs: caseURIs,
+                testFrame: testFrame
+            };
+
+            //host._setConfig(cfg);
+
+            host.injectResource(testFrame, cfg);
+            
         },
 
-        _addTask: function (ev, target){
+        _setConfig: function (){
+        },
+
+        _addCaseInput: function (ev, target){
             ev.preventDefault();
 
             var parentNode = DOM.parent(target, '.J_TaskConfig'),
@@ -103,7 +137,34 @@ KISSY.add('UITester', function (S){
         },
         
         // 注入测试脚本
-        injectResource: function (){
+        injectResource: function (frame, cfg){
+            var host = this,
+                scriptNode;
+
+            // 注册事件, 在 iframe onload 时候再注入脚本
+            Event.on(frame, 'load', function (){
+                var scriptsInjectQueue = host.configs.defaultInjectScripts.concat(cfg.caseURIs);
+
+                S.each(scriptsInjectQueue, function (value){
+                    scriptNode = document.createElement('script');
+                    scriptNode.src = value;
+                    //scriptNode = DOM.create('<script src="' + value + '"></script>')
+                    frame.contentWindow.document.body.appendChild(scriptNode);
+                });
+
+
+                //var neoNode = frame.contentWindow.document.createElement('script');
+                //var neoNode = document.createElement('script');
+                //frame.contentWindow.document.body.appendChild(neoNode);
+                //neoNode.src = 'http://uitester.taobao.com/tool/test-inject.js'
+
+
+            });
+
+            frame.src = cfg.testURI + 
+                (cfg.testURI.indexOf('?') > -1 ? '&' : '?') +
+                't=' + Math.random();
+
         }
 
     };
