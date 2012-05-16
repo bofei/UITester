@@ -13,8 +13,8 @@
 </head>
 <body>
     <?php 
-    for ($idx = 0; $idx < 4; $idx++){
-        echo('
+        for ($idx = 0; $idx < 4; $idx++){ 
+    ?>
             <div class="task J_Task">
 
                 <form action="" class="task-config J_TaskConfig">
@@ -22,13 +22,13 @@
                         <tr>
                             <th>≤‚ ‘Õ¯÷∑</th>
                             <td>
-                                <input type="text" class="test-input J_TestURI" />
+                                <input type="text" class="test-input J_TestURI" value="<? if ($idx == 0){ echo('http://jianghu.taobao.com/crossdomain.htm'); } ?>" />
                             </td>
                             <td>&nbsp;</td>
                         </tr><tr>
                             <th>”√¿˝µÿ÷∑</th>
                             <td class="J_CaseSetting">
-                                <input type="text" class="test-input J_CaseURI" />
+                                <input type="text" class="test-input J_CaseURI" value="<? if ($idx == 0){ echo('http://uitester.taobao.com/tool/test/test-inject.js'); } ?>"  />
                             </td>
                             <td>
                                 <a class="J_AddCase" href="">[+]</a>
@@ -45,8 +45,8 @@
 
                 <iframe src="" frameborder="0" class="test-frame J_TestFrame"></iframe>
             </div>
-        ');
-    }
+    <?
+        }
     ?>
 </body>
 </html>
