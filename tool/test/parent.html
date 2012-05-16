@@ -1,0 +1,32 @@
+
+<span style="font-size: small;"><!DOCTYPE HTML>  
+<html>  
+<head>  
+<title>Communication</title>  
+<script>  
+  
+    var messageChange = function(e) {    
+      var data = e.data;    
+      var origin = e.origin;    
+      //if (origin !== "http://uitester.com") return;  
+      //document.getElementById('display').innerHTML = data;    
+        console.info(data);
+        
+    };    
+        
+    if (typeof window.addEventListener != 'undefined') {    
+      window.addEventListener('message', messageChange, false);    
+    } else if (typeof window.attachEvent != 'undefined') {    
+      window.attachEvent('onmessage', messageChange);    
+    }    
+  
+</script>  
+</head>  
+<body>  
+<div id="display">Say something!</div>  
+  
+<iframe scrolling="no" frameborder="0" width="0" height="0" src="child.html"></iframe>    
+</body>  
+</html>  
+</span>  
+<span style="font-size: small;">  
