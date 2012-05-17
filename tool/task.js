@@ -52,16 +52,16 @@ KISSY.add('UITester', function (S){
         },
 
         // 初始化 postMessage 功能
-        _initPostMessage: function (){
-        },
+        //_initPostMessage: function (){
+        //},
 
         // 向任务队列添加任务
-        _addToTaskQueue: function (){
-        },
+        //_addToTaskQueue: function (){
+        //},
 
          // 从任务队列中移除任务
-        _removeFromTaskQueue: function (){
-        },
+        //_removeFromTaskQueue: function (){
+        //},
 
         // 为整个测试框架绑定事件
         bindEvent: function (){
@@ -101,7 +101,12 @@ KISSY.add('UITester', function (S){
                 testFrame;
 
             testURI = DOM.get('.J_TestURI', parentNode);
-            testFrame = DOM.get('.J_TestFrame', parentNode);
+
+            testFrameContainer = DOM.get('.J_TestFrame');
+            testFrameContainer.innerHTML = '';
+
+            testFrame = DOM.create('<iframe>');
+            DOM.append(testFrame, testFrameContainer);
 
             S.each(DOM.query('.J_CaseURI', parentNode), function (el){
                 if (S.trim(el.value) !== ''){
@@ -148,16 +153,8 @@ KISSY.add('UITester', function (S){
                 S.each(scriptsInjectQueue, function (value){
                     scriptNode = document.createElement('script');
                     scriptNode.src = value;
-                    //scriptNode = DOM.create('<script src="' + value + '"></script>')
                     frame.contentWindow.document.body.appendChild(scriptNode);
                 });
-
-
-                //var neoNode = frame.contentWindow.document.createElement('script');
-                //var neoNode = document.createElement('script');
-                //frame.contentWindow.document.body.appendChild(neoNode);
-                //neoNode.src = 'http://uitester.taobao.com/tool/test-inject.js'
-
 
             });
 
