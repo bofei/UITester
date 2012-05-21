@@ -4,7 +4,7 @@
     <meta charset="gbk">
     <title></title>
     <link rel="stylesheet" type="text/css" href="../lib/jasmine.css">
-    <script src="../lib/kissy.js"></script>
+    <script src="../lib/kissy-aio.js"></script>
     <script src="../lib/jasmine.js"></script>
     <script src="../lib/jasmine-html.js"></script>
     <script src="../lib/event-simulate.js"></script>
@@ -17,17 +17,37 @@
         color:red;
     }
 
+    .blue{
+        color:blue;
+    }
+    .hide{
+        display:none;
+    }
+
 </style>
 <a id="target" class="default">test</a>
+
+<div class="hide">abce</div>
+
+
+<input class="check" type="checkbox" checked/>
+
+<div class="list"><ul><li>1</li><li>2</li><li>3</li></ul>
+</div>
+
+<input type="text" class="textInput"/>
 <script>
     //功能
     (function () {
         var $ = KISSY.all;
         var el = $("#target");
+        var textEl = $('.textInput');
         el.on("click", function () {
             setTimeout(function () {
-                el.addClass("red")
-                el.addClass("blue")
+                el.addClass("red");
+                el.removeClass('red');
+                el.addClass("blue");
+                textEl[0].focus();
             }, 100);
         })
 
@@ -36,18 +56,43 @@
 </script>
 <!-- test-->
 <script>
-    describe("测试ui变化", function () {
+    describe("测试new expect API", function () {
         var DOM = KISSY.DOM;
         var el = DOM.get("#target");
-        it("id为target的元素有一个名为default的className", function () {
-                expect(el).hasClass("default")
-        })
+        var hiddenEl = DOM.get('.hide');
+        var checkBox = DOM.get('.check');
+        var listEl = DOM.get('.list');
+        var textInput = DOM.get('.textInput');
+        it("toHaveClass", function () {
+            expect(el).toHaveClass("default");
+        });
+        it("toBeHidden", function () {
 
-        it("id为target的元素点击后增加名为red的className", function () {
+            expect(hiddenEl).toBeHidden();
+
+        });
+        it("toBeChecked", function () {
+
+            expect(checkBox).toBeChecked();
+
+        });
+        it("toHaveHtml", function () {
+
+            expect(listEl).toHaveHtml('<ul><li>1</li><li>2</li><li>3</li></ul>');
+        });
+
+        //异步判断
+        it("waitsMatchers", function () {
             simulate(el, 'click');
             waitsMatchers(function () {
-                expect(el).hasClass("red")
-                expect(el).hasClass("blue")
+                expect(el).toHaveClass("blue");
+
+            }, 200);
+            waitsMatchers(function () {
+                expect(el).toBeVisible();
+            }, 200);
+            waitsMatchers(function () {
+                expect(textInput).toBeFocused();
             }, 200);
 
 
