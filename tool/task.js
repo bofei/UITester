@@ -114,37 +114,47 @@ KISSY.add('UITester', function (S){
             var host = this;
 
             var testURI, 
-                caseURIs = [],
-                testFrame;
+                //caseURIs = [],
+                taskForm,
+                testFrame
+                taskId;
 
-            testURI = DOM.get('.J_TestURI', parentNode);
+            var taskId = '__testframe__' + S.guid();
 
-            testFrameContainer = DOM.get('.J_TestFrame');
+            testFrameContainer = DOM.get('.J_TestFrame', parentNode);
             testFrameContainer.innerHTML = '';
 
-            testFrame = DOM.create('<iframe>');
+            testFrame = DOM.create('<iframe width="800" height="600">');
+            DOM.attr(testFrame, 'name', taskId);
             DOM.append(testFrame, testFrameContainer);
 
-            S.each(DOM.query('.J_CaseURI', parentNode), function (el){
-                if (S.trim(el.value) !== ''){
-                    caseURIs.push(el.value);
-                }
-            });
+            testURI = DOM.get('.J_TestURI', parentNode).value;
 
-            var cfg = {
-                testURI: testURI.value,
-                caseURIs: caseURIs,
-                testFrame: testFrame
-            };
+            taskForm = DOM.get('.J_TaskConfig', parentNode);
+            DOM.attr(taskForm, 'action', testURI);
+            DOM.attr(taskForm, 'target', taskId);
+ 
+            taskForm.submit();
+            //S.each(DOM.query('.J_CaseURI', parentNode), function (el){
+            //    if (S.trim(el.value) !== ''){
+            //        caseURIs.push(el.value);
+            //    }
+            //});
+            //
+            //var cfg = {
+            //    testURI: testURI.value,
+            //    caseURIs: caseURIs,
+            //    testFrame: testFrame
+            //};
 
             //host._setConfig(cfg);
 
-            host.injectResource(testFrame, cfg);
+            //host.injectResource(testFrame, cfg);
             
         },
 
-        _setConfig: function (){
-        },
+        //_setConfig: function (){
+        //},
 
         _addCaseInput: function (ev, target){
             ev.preventDefault();

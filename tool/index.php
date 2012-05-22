@@ -21,15 +21,15 @@
             <tr>
                 <th>≤‚ ‘Õ¯÷∑</th>
                 <td>
-                    <input type="text" class="test-input J_TestURI" value="<?
-                        if ($idx == 1){ echo('http://jianghu.taobao.com/crossdomain.htm'); }
+                    <input type="text" name="test_uri" class="test-input J_TestURI" value="<?
+                        if ($idx == 1){ echo('http://uitest.taobao.com/tool/inject-proxy.php'); }
                     ?>" />
                 </td>
                 <td>&nbsp;</td>
             </tr><tr>
                 <th>”√¿˝µÿ÷∑</th>
                 <td class="J_CaseSetting">
-                    <input type="text" class="test-input J_CaseURI" value="<?
+                    <input type="text" name="case_uri[]" class="test-input J_CaseURI" value="<?
                         if ($idx == 1){ echo('http://uitester.taobao.com/tool/test/test-inject.js'); }
                     ?>"  />
                 </td>
