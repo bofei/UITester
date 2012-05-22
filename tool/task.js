@@ -87,7 +87,24 @@ KISSY.add('UITester', function (S){
                     host._startTask(ev, target, parentNode);
                 }
 
+                if (DOM.hasClass(target, 'J_AddTask')){
+                    host._addTask(ev);
+                }
+
             });
+        },
+
+        _addTask: function (ev){
+            ev.preventDefault();
+
+            var targetNode = DOM.get('.J_Task')
+
+            // 克隆整个 DOM 结构，包括子节点
+            var neoClonedTask = DOM.clone(targetNode, true);
+            var formNode = DOM.get('FORM', neoClonedTask);
+            formNode.reset();
+
+            DOM.insertBefore(neoClonedTask, targetNode);
         },
 
         // 启动队列中的任务
