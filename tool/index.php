@@ -16,12 +16,12 @@
 
 <?php for ($idx = 0; $idx < 2; $idx++){ ?>
 <div class="task J_Task">
-    <form action="" class="task-config J_TaskConfig">
+    <form action="" method="post" class="task-config J_TaskConfig">
         <table>
             <tr>
                 <th>≤‚ ‘Õ¯÷∑</th>
                 <td>
-                    <input type="text" name="test_uri" class="test-input J_TestURI" value="<?
+                    <input type="text" name="target_uri" class="test-input J_TestURI" value="<?
                         if ($idx == 1){ echo('http://uitest.taobao.com/tool/inject-proxy.php'); }
                     ?>" />
                 </td>
@@ -29,8 +29,8 @@
             </tr><tr>
                 <th>”√¿˝µÿ÷∑</th>
                 <td class="J_CaseSetting">
-                    <input type="text" name="case_uri[]" class="test-input J_CaseURI" value="<?
-                        if ($idx == 1){ echo('http://uitester.taobao.com/tool/test/test-inject.js'); }
+                    <input type="text" name="inject_uri[]" class="test-input J_CaseURI" value="<?
+                        if ($idx == 1){ echo('http://uitest.taobao.com/tool/test/test-inject.js'); }
                     ?>"  />
                 </td>
                 <td>
