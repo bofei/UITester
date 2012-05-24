@@ -1,14 +1,24 @@
 <?php
     //$queryString = $_SERVER['QUERY_STRING'];
-    //$sourceURI = $_SERVER['HTTP_HOST'] . $_SERVER["SCRIPT_NAME"];
+    //$sourceURI = $_SERVER['HTTP_HOST'] . $_SERVER["SCRIPT_NAME"]; 
+
+    echo('--request--');
+    var_dump($_REQUEST);
+
+    echo('--get--');
+    var_dump($_GET);
+
+    echo('--post--');
+    var_dump($_POST);
+
     $isGetByCurl = $_REQUEST['__TEST__'];
 
-    $testURI = $_REQUEST['test_uri'];
-    $caseURIs = $_REQUEST['case_uri'];
+    $targetURI = $_REQUEST['target_uri'];
+    $injectURIs = $_REQUEST['inject_uri'];
 
     $ch = curl_init();
 
-    curl_setopt($ch, CURLOPT_URL, $testURI);
+    curl_setopt($ch, CURLOPT_URL, $targetURI);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_HEADER, 0);
     $output = curl_exec($ch);
@@ -20,7 +30,7 @@
         '../lib/event-simulate.js'
     );
 
-    $injectList = array_merge($injectList, $caseURIs);
+    $injectList = array_merge($injectList, $injectURIs);
 
     //var_dump($injectList);
 
