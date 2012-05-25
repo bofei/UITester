@@ -2,14 +2,10 @@
     //$queryString = $_SERVER['QUERY_STRING'];
     //$sourceURI = $_SERVER['HTTP_HOST'] . $_SERVER["SCRIPT_NAME"]; 
 
-    echo('--request--');
-    var_dump($_REQUEST);
-
-    echo('--get--');
-    var_dump($_GET);
-
-    echo('--post--');
-    var_dump($_POST);
+    //echo('post<br>');
+    //var_dump($_POST);
+    //echo('get<br>');
+    //var_dump($_GET);
 
     $isGetByCurl = $_REQUEST['__TEST__'];
 
@@ -48,5 +44,5 @@
         $output = str_replace('</body>', createInjectList($injectList) . 'insert</body>', $output);
     }
 
-    //echo($output);
+    echo($output);
 ?>
