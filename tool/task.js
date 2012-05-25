@@ -42,7 +42,7 @@ KISSY.add('UITester', function (S){
 
         // ³õÊ¼»¯²âÊÔÄ£¿é
         init: function (){
-            document.domain = 'taobao.com';
+            //document.domain = 'taobao.com';
 
             var host = this;
 
@@ -119,7 +119,8 @@ KISSY.add('UITester', function (S){
                 testFrame
                 taskId;
 
-            var taskId = '__testframe__' + S.guid();
+            var tag = '__TEST__';
+            var taskId = tag + S.guid();
 
             testFrameContainer = DOM.get('.J_TestFrame', parentNode);
             testFrameContainer.innerHTML = '';
@@ -129,6 +130,7 @@ KISSY.add('UITester', function (S){
             DOM.append(testFrame, testFrameContainer);
 
             testURI = DOM.get('.J_TestURI', parentNode).value;
+            testURI += (testURI.indexOf('?') > -1 ? '&' : '?') + tag;
 
             taskForm = DOM.get('.J_TaskConfig', parentNode);
             DOM.attr(taskForm, 'action', testURI);
