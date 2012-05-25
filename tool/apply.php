@@ -40,7 +40,6 @@
         </table>
 
         <a href="" class="J_StartTest">∆Ù∂Ø≤‚ ‘</a>
-        <input type="hidden" name="__TEST__" />
     </form>
 
     <div class="J_TaskResult task-result">
