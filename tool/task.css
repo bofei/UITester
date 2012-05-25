@@ -26,6 +26,8 @@
 .task .test-frame {
     //position: absolute;
     //left: -100000px;
+    overflow: hidden;
+    clear: both;
 }
 
 .task th,
