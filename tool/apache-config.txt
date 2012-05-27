@@ -1,0 +1,10 @@
+<VirtualHost 127.0.0.1:80>
+    ProxyRequests On
+
+    RewriteEngine On
+    RewriteCond %{REQUEST_URI} .*TEST.*
+    RewriteRule ^(.*) http://localhost/proxy.php?%{REQUEST_URI} [P,L]
+
+    RewriteLogLevel 9
+    RewriteLog 'logs/proxy-log.log'
+</VirtualHost>
