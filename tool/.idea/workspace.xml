@@ -22,16 +22,66 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="record.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="record.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/record/record.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="337" column="31" selection-start="9430" selection-end="9430" vertical-scroll-proportion="-1.5948963">
+            <state line="299" column="21" selection-start="9533" selection-end="9533" vertical-scroll-proportion="-4.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ajax.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://D:/workspace/trunk/p/snsdk/src/core/ajax.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="473" column="36" selection-start="15346" selection-end="15350" vertical-scroll-proportion="-11.68">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="comment.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://D:/workspace/trunk/p/snsdk/src/widget/comment.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="476" column="0" selection-start="16216" selection-end="16216" vertical-scroll-proportion="6.24">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="util.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://D:/workspace/trunk/p/snsdk/src/core/util.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="173" column="17" selection-start="4288" selection-end="4297" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="setwidget.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://D:/workspace/trunk/p/snsdk/demo/setwidget.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="414" column="57" selection-start="14416" selection-end="14416" vertical-scroll-proportion="0.54738563">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="face.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://D:/workspace/trunk/p/snsdk/src/util/face.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="9" selection-start="13" selection-end="13" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
   </component>
   <component name="Git.Settings">
     <option name="CHECKOUT_INCLUDE_TAGS" value="false" />
@@ -43,14 +93,17 @@
       <list>
         <option value="$PROJECT_DIR$/record.html" />
         <option value="$PROJECT_DIR$/record/record.html" />
+        <option value="D:/workspace/trunk/p/snsdk/src/core/ajax.js" />
+        <option value="D:/workspace/trunk/p/snsdk/src/util/face.js" />
+        <option value="D:/workspace/trunk/p/snsdk/src/core/util.js" />
+        <option value="D:/workspace/trunk/p/snsdk/src/widget/comment.js" />
+        <option value="D:/workspace/trunk/p/snsdk/demo/setwidget.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1296" />
-    <option name="height" value="776" />
+    <option name="width" value="1280" />
+    <option name="height" value="760" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -78,6 +131,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -88,20 +142,19 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="options.lastSelected" value="web.server" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="JavascriptDebugSession" factoryName="Local">
       <JSDebuggerConfigurationSettings>
-        <option name="engineId" />
+        <option name="engineId" value="embedded" />
         <option name="fileUrl" />
       </JSDebuggerConfigurationSettings>
       <method />
@@ -136,19 +189,19 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1296" height="776" extended-state="7" />
+    <frame x="0" y="0" width="1280" height="760" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.04140625" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.04113924" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -212,7 +265,42 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/record/record.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="337" column="31" selection-start="9430" selection-end="9430" vertical-scroll-proportion="-1.5948963">
+        <state line="299" column="21" selection-start="9533" selection-end="9533" vertical-scroll-proportion="-4.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/workspace/trunk/p/snsdk/src/core/ajax.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="473" column="36" selection-start="15346" selection-end="15350" vertical-scroll-proportion="-11.68">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/workspace/trunk/p/snsdk/src/util/face.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="9" selection-start="13" selection-end="13" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/workspace/trunk/p/snsdk/src/core/util.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="173" column="17" selection-start="4288" selection-end="4297" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/workspace/trunk/p/snsdk/src/widget/comment.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="476" column="0" selection-start="16216" selection-end="16216" vertical-scroll-proportion="6.24">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/workspace/trunk/p/snsdk/demo/setwidget.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="414" column="57" selection-start="14416" selection-end="14416" vertical-scroll-proportion="0.54738563">
           <folding />
         </state>
       </provider>
