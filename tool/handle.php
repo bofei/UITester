@@ -11,37 +11,44 @@
     // modify current record
     if ($modify_tag === 'modify'){
         $sql = '
-            UPDATE `list` SET 
-            `name`= ' . $task_name . ',
-            `test_uri`= ' . $task_target_uri . ',
-            `case_uri`= ' . $task_inject_uri. '
-            WHERE id = ' . $task_id . ';
-        ';
+            UPDATE list SET 
+            task_name= "' . $task_name . '",
+            task_target_uri= "' . $task_target_uri . '",
+            task_inject_uri= "' . $task_inject_uri. '"
+            WHERE id = ' . $task_id;
+
     }
 
     // remove record
     else if ($modify_tag === 'remove'){
         $sql = '
             DELETE FROM `list`
-            WHERE id = ' . $task_id . '
-        ';
+            WHERE id = ' . $task_id;
+
     }
 
     // add for new record
     else {
         $sql = '
-            INSERT INTO `list` (
-                `task_name`,
-                `task_target_uri`,
-                `task_inject_uri`
+            INSERT INTO list (
+                task_name,
+                task_target_uri,
+                task_inject_uri
             ) VALUES (
-                `' . $task_name . '` ,
-                `' . $task_target_uri . '`,
-                `' . $task_inject_uri . '`
+                "' . $task_name . '" ,
+                "' . $task_target_uri . '",
+                "' . $task_inject_uri . '"
             );
         ';
+
     }
 
-    echo $sql;
+    $result = mysql_query($sql);
+    $output = '<p>操作' . ($result === true ? '成功' : '失败') . '，<a href="list.php">返回</a> 列表页</p>';
+
+    print_r('已执行 sql: ' . $sql);
+    print_r($output);
+
+
 
 ?>

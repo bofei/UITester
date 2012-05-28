@@ -38,9 +38,9 @@
                                 <tr>
                                     <td>' . $result_item['task_name'] . '</td>
                                     <td>
-                                        <a href="modify.php?id=' . $result_item['id'] . '" class="J_Edit">ÐÞ¸Ä</a>
-                                        <a href="handle.php?id=' . $result_item['id'] . '" class="J_Remove">É¾³ý</a>
-                                        <a href="apply.php?id=' . $result_item['id'] . '" class="J_Run">Æô¶¯²âÊÔ</a>
+                                        <a href="modify.php?task_id=' . $result_item['id'] . '" class="J_Edit">ÐÞ¸Ä</a>
+                                        <a href="handle.php?modify_tag=remove&task_id=' . $result_item['id'] . '" class="J_Remove">É¾³ý</a>
+                                        <a href="apply.php?task_id=' . $result_item['id'] . '" class="J_Run">Æô¶¯²âÊÔ</a>
                                     </td>
                                 </tr>
                             ');

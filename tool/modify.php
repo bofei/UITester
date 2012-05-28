@@ -23,7 +23,7 @@
                         $task_inject_uri = '';
                         $modify_tag = '';
 
-                        $task_id = trim($_REQUEST['id']);
+                        $task_id = trim($_REQUEST['task_id']);
 
                         if ($task_id !== ''){
 
