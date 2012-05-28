@@ -40,7 +40,7 @@
                                     <td>
                                         <a href="modify.php?task_id=' . $result_item['id'] . '" class="J_Edit">ÐÞ¸Ä</a>
                                         <a href="handle.php?modify_tag=remove&task_id=' . $result_item['id'] . '" class="J_Remove">É¾³ý</a>
-                                        <a href="apply.php?task_id=' . $result_item['id'] . '" class="J_Run">Æô¶¯²âÊÔ</a>
+                                        <a href="apply.php?task_id=' . $result_item['id'] . '" class="J_Run" target="_blank">Æô¶¯²âÊÔ</a>
                                     </td>
                                 </tr>
                             ');
