@@ -7,10 +7,8 @@
 
     <link rel="stylesheet" type="text/css" href="../../lib/jasmine.css">
     <script src="../../lib/kissy-aio.js"></script>
-    <script src="../../lib/jasmine.js"></script>
-    <script src="../../lib/jasmine-html.js"></script>
-    <script src="../../lib/event-simulate.js"></script>
-    <script src="../../lib/matcher.js"></script>
+
+    <script src="./postmsg.js"></script>
     <style>
         ul{
             padding:0;
@@ -41,7 +39,6 @@
             padding:5px;
             overflow:hidden;;
             list-style:none;
-            background-color:#ccffcc;
         }
         #nav ul{
             margin:0;
@@ -164,13 +161,10 @@
 <div id="page">
     <div id="nav">
         <ul>
-            <li><a href="#">123</a></li>
-            <li><a href="#">定位</a></li>
-            <li><a href="#">样式</a></li>
+            <li><a href="#" class="status" data-start="false">开始</a></li>
 
 
         </ul>
-
     </div>
     <div id="content">
         <div class="sub">
@@ -205,63 +199,7 @@
         <div class="main">
             <div class="page">
                 <div id="test-page">
-
-                    <ul>
-                        <li><a href="#" onclick="addAttr(this)">addAttr</a></li>
-                        <li><a href="#" onclick="removeAttr(this)" class="red">removeAttr</a></li>
-                        <li><a href="#" onclick="changeAttr(this)" class="blue">changeAttr</a></li>
-                        <li><a href="#" onclick="changeStyle(this)" class="blue">changeStyle</a></li>
-                        <li><a href="#" onclick="changeInnerHtml(this)" class="blue">changeInnerHtml</a></li>
-                        <li><a href="#" onclick="appendNewChild(this)" class="blue">appendNewChild</a></li>
-                        <li><a href="#" onclick="removeOldChild(this)" class="blue">remove<span
-                                id="remove">OldChild</span></a>
-                        <li><a href="#" onmouseover="setBgColor(this)" class="blue">red</a></li>
-
-                    </ul>
-                    <ul>
-                        <li><input type="text"/></li>
-                        <li><input type="radio"/></li>
-                        <li><input type="checkbox"/></li>
-                        <li><textarea></textarea></li>
-                        <li><select>
-                            <option>123</option>
-                            <option>123</option>
-                        </select></li>
-                    </ul>
-                    <script>
-                        var S = KISSY, D = KISSY.DOM;
-                        E = KISSY.Event;
-                        var addAttr = function (el) {
-                            D.addClass(el, "red")
-                        }
-                        var removeAttr = function (el) {
-                            D.removeClass(el, "red")
-                        }
-                        var changeAttr = function (el) {
-                            el.className = "red"
-                        }
-                        var changeStyle = function (el) {
-                            el.style.color = "green"
-                        }
-                        var changeInnerHtml = function (el) {
-
-                            el.innerHTML = "haschangeInnerHtml"
-                        }
-                        var appendNewChild = function (el) {
-                            var newEl = document.createElement("span");
-                            newEl.innerHTML = "new span el"
-                            el.appendChild(newEl);
-                        }
-                        var removeOldChild = function (el) {
-                            var t = document.getElementById("remove")
-                            D.remove(t);
-                        }
-                        var setBgColor = function (el) {
-                            el.style.backgroundColor = "red";
-                        }
-
-                    </script>
-
+                    <iframe id="iframe-target" src="./testiframe.html" width="100%" height="500px"></iframe>
                 </div>
 
 
@@ -314,6 +252,71 @@
 
     </div>
 </div>
-<script src="./events.js" charset="utf-8"></script>
+<script>
+    var S = KISSY, D = KISSY.DOM;
+    var oldCaseType , caseType;
+    E = KISSY.Event;
+    var showMsg = function (msg) {
+        var p = D.create("<p></p>");
+        for (var i = 0; i < arguments.length; i++) {
+            var s = D.create("<span>" + arguments[i] + "</span>");
+            p.appendChild(s);
+        }
+        D.get("#test-case").appendChild(p)
+    }
+
+    E.on(".type", "click", function (e) {
+        var target = e.target;
+        caseTest = D.attr(target, "data-value")
+        postmsg.send({
+            target:D.get("#iframe-target").contentWindow,
+            data  :{set:{
+                caseType:caseTest
+            }}
+        })
+    })
+    E.on(".status", "click", function (e) {
+        var target = e.target;
+        var start = D.attr(target, "data-start");
+        if (start == "false") {
+            target.innerHTML = "暂停"
+                postmsg.send({
+                    target:D.get("#iframe-target").contentWindow,
+                    data  :{set:{
+                        start:true
+                    }}
+                })
+
+            D.attr(target, "data-start", true);
+        } else {
+            target.innerHTML = "开始"
+            postmsg.send({
+                target:D.get("#iframe-target").contentWindow,
+                data  :{set:{
+                    start:false
+                }}
+            })
+
+            D.attr(target, "data-start", false);
+        }
+
+    })
+    E.on(".stop", "click", function (e) {
+
+        postmsg.send({
+            target:D.get("#iframe-target").contentWindow,
+            data  :{set:{
+                start:false
+            }}
+        })
+    })
+
+    postmsg.bind(function (data) {
+        showMsg(data.caseCode);
+    })
+
+</script>
+
+
 </body>
 </html>
