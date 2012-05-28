@@ -10,36 +10,67 @@
         <div id="head">UITester</div>
         <div id="content">
 
-            <form method="POST" action="save.php">
+            <form method="POST" action="handle.php">
                 <table class="add-case-table">
                     <colgroup>
                         <col class="property" />
                         <col class="value" />
                     </colgroup>
 
-                    <tr>
-                        <th>√˚≥∆</th>
-                        <td>
-                            <input type="text" name="target_name" class="input-box" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>≤‚ ‘Õ¯÷∑</th>
-                        <td>
-                            <input type="text" name="target_uri" class="input-box" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>”√¿˝µÿ÷∑</th>
-                        <td>
-                            <input type="text" name="inject_uris[]" class="input-box" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <input type="submit" value="±£¥Ê" />
-                        </td>
-                    </tr>
+                    <?php
+                        $task_name = '';
+                        $task_target_uri = '';
+                        $task_inject_uri = '';
+                        $modify_tag = '';
+
+                        $task_id = trim($_REQUEST['id']);
+
+                        if ($task_id !== ''){
+
+                            include_once('conn_db.php');
+
+                            $sql = 'select * from list where id = ' . $task_id;
+                            $taskResult = mysql_query($sql);
+
+                            if (mysql_num_rows($taskResult) > 0){
+                                $result_item = mysql_fetch_assoc($taskResult);
+                                $task_name = $result_item['task_name'];
+                                $task_target_uri = $result_item['task_target_uri'];
+                                $task_inject_uri = $result_item['task_inject_uri'];
+
+                                $modify_tag = 'modify';
+                            }
+                        }
+
+                        echo('
+                            <tr>
+                                <th>√˚≥∆</th>
+                                <td>
+                                    <input type="text" name="task_name" class="input-box" value="' . $task_name . '" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>≤‚ ‘Õ¯÷∑</th>
+                                <td>
+                                    <input type="text" name="task_target_uri" class="input-box" value="' . $task_target_uri . '" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>”√¿˝µÿ÷∑</th>
+                                <td>
+                                    <input type="text" name="task_inject_uri" class="input-box" value="' . $task_inject_uri. '" />
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="2">
+                                    <input type="hidden" name="modify_tag" value="' . $modify_tag . '" />
+                                    <input type="hidden" name="task_id" value="' . $task_id . '" />
+                                    <input type="submit" value="±£¥Ê" />
+                                </td>
+                            </tr>
+                        ');
+                    ?>
                 </table>
             </form>
 

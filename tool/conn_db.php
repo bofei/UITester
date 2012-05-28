@@ -1,12 +1,13 @@
 <?php
-$db_host = 'localhostl';
+$db_host = 'localhost';
 $user = 'root';
 $pwd = '1234';
 
-$con = mysql_connect($db_host, $user, $pwd);
+$conn = mysql_connect($db_host, $user, $pwd);
 
-if (!$con) {
+if (!$conn) {
     die('Could not connect: ' . mysql_error());
 }
 
+$database = mysql_select_db('uitest', $conn);
 ?>

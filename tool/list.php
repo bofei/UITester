@@ -11,7 +11,7 @@
         <div id="content">
 
             <div class="case-list">
-                <a href="" class="add-case">添加用例</a>
+                <a href="modify.php" class="add-case">添加用例</a>
 
                 <table class="case-table">
                     <colgroup>
@@ -22,38 +22,30 @@
                 		<th>用例名</th>
                 		<th>操作</th>
                 	</tr>
-                    <tr>
-                        <td> <a href="">测试一的用例</a> </td>
-                        <td>
-                            <a href="" class="J_Edit">修改</a>
-                            <a href="" class="J_Remove">删除</a>
-                            <a href="" class="J_Run">启动测试</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td> <a href="">测试一的用例</a> </td>
-                        <td>
-                            <a href="" class="J_Edit">修改</a>
-                            <a href="" class="J_Remove">删除</a>
-                            <a href="" class="J_Run">启动测试</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td> <a href="">测试一的用例</a> </td>
-                        <td>
-                            <a href="" class="J_Edit">修改</a>
-                            <a href="" class="J_Remove">删除</a>
-                            <a href="" class="J_Run">启动测试</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td> <a href="">测试一的用例</a> </td>
-                        <td>
-                            <a href="" class="J_Edit">修改</a>
-                            <a href="" class="J_Remove">删除</a>
-                            <a href="" class="J_Run">启动测试</a>
-                        </td>
-                    </tr>
+
+                    <?php
+                        include_once('conn_db.php');
+
+                        $sql = 'select * from list';
+                        $queryListResult = mysql_query($sql);
+
+                        $result_num = mysql_num_rows($queryListResult);
+
+                        for($idx = 0; $idx < $result_num; $idx ++){
+                            $result_item = mysql_fetch_assoc($queryListResult);
+
+                            echo('
+                                <tr>
+                                    <td>' . $result_item['task_name'] . '</td>
+                                    <td>
+                                        <a href="modify.php?id=' . $result_item['id'] . '" class="J_Edit">修改</a>
+                                        <a href="handle.php?id=' . $result_item['id'] . '" class="J_Remove">删除</a>
+                                        <a href="apply.php?id=' . $result_item['id'] . '" class="J_Run">启动测试</a>
+                                    </td>
+                                </tr>
+                            ');
+                        }
+                    ?>
                 </table>
             </div>
 
