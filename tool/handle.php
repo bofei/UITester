@@ -49,6 +49,10 @@
     print_r('已执行 sql: ' . $sql);
     print_r($output);
 
+    if ($result === false){
+        print_r('查询出错信息 [' . mysql_errno() . ']: ' . mysql_error());
+    }
+
 
 
 ?>
