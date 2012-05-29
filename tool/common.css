@@ -1,0 +1,165 @@
+
+/*! Taobao Style Platform Copyright(c) 2008-2100, Taobao.com Inc. Some rights reserved. */
+
+body { font: 12px/1.5 Tahoma,Helvetica,Arial,'宋体',sans-serif; }
+html, legend { color: #404040; background: #fff; }
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td {
+	margin: 0;
+	padding: 0;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+fieldset,img {
+	border: none;
+}
+
+address,caption,cite,code,dfn,em,strong,th,var {
+	font-style: normal;
+	font-weight: normal;
+}
+
+li { list-style: none; }
+
+caption,th { text-align: left; }
+
+h1,h2,h3,h4,h5,h6 { font-size: 100%; }
+h1 { font-size: 18px; /* 18px / 12px = 1.5 */ }
+h2 { font-size: 16px; }
+h3 { font-size: 14px; }
+
+q:before,q:after { content: ''; }
+
+abbr,acronym { border: none; font-variant: normal; }
+
+/* to preserve line-height and selector appearance */
+sup { vertical-align: text-top; }
+sub { vertical-align: text-bottom; }
+
+input,button,textarea,select {
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: inherit;
+}
+/*to enable resizing for IE*/
+input,button,textarea,select { *font-size: 100%; }
+
+select, input, button, textarea {
+	font: 100% Tahoma,Helvetica,Arial,sans-serif;
+}
+
+/**
+ * To help tables remember to inherit
+ */
+table { font-size: inherit; font: 100%; }
+
+/**
+ * fixed-width elements
+ */
+pre, code, kbd, samp, tt{
+	font-family: 'Courier New', Courier, monospace;
+}
+
+/**
+ * 默认情况下，small的字号比默认小，这里reset掉，抹平差异
+ * 对于中文默认为12px时，让small也12px非常有必要。小于12px的中文字很难识别
+ */
+small { font-size: 100%; }
+
+/*a:link, a:visited {*/
+a {
+	color: #36c;
+	text-decoration: none;
+}
+/*a:hover, a:active {*/
+a:hover {
+	color: #f60;
+	text-decoration: underline;
+}
+
+abbr,acronym {
+	/* indicating to users that more info is available */
+	border-bottom: 1px dotted;
+	cursor: help;
+}
+
+ins { text-decoration: none; }
+del { text-decoration: line-through; }
+
+hr {
+    color: #D1D7DC;
+    background-color: #D1D7DC;
+    border: none;
+    height: 1px;
+}
+
+html {
+    overflow-y: scroll; /* 在opera下会同时触发水平滚动条，但考虑opera的用户数，也就可以忽略了 */
+}
+#page, #page3 { width: 950px; margin-left: auto; margin-right: auto; } /* Golden width ^o^ */
+/* For liquid layout. You can override it with any favorite percent. */
+/*#page2 { width: 100%; } 不设置，默认就是100%. */
+#page3 { width: 750px; } /* 750 is still suitable for 'small, intro' page. */
+
+.clearfix:after {
+    content: '\0020';
+    display: block;
+    height: 0;
+    clear: both;
+}
+
+/* common */
+.clearfix { *zoom : 1; }
+
+#head{
+    height: 60px;
+}
+
+/* List 页样式*/
+.add-case {
+    display: block;
+    width: 60px;
+    height: 24px;
+    line-height: 24px;
+    background: #eee;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.case-table {
+    width: 700px;
+    margin: 10px 0;
+}
+
+.case-table th, td {
+    border: 1px solid #000;
+    padding: 5px;
+}
+
+.case-name {
+    width: 500px;
+}
+
+/* 添加用例 */
+.add-case-table {
+    width: 500px;
+}
+
+.add-case-table th, td {
+    border: 1px solid #000;
+    padding: 5px;
+}
+
+.add-case-table .property {
+    width: 90px;
+}
+
+.add-case-table .input-box {
+    border: 1px solid #ccc;
+    width: 350px;
+    padding: 3px;
+}

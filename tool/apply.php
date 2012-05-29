@@ -16,21 +16,27 @@
 
 <?php for ($idx = 0; $idx < 2; $idx++){ ?>
 <div class="task J_Task">
-    <form action="" method="post" class="task-config J_TaskConfig">
+    <form action="" method="GET" class="task-config J_TaskConfig">
         <table>
             <tr>
                 <th>测试网址</th>
                 <td>
-                    <input type="text" name="target_uri" class="test-input J_TestURI" value="<?
-                        if ($idx == 1){ echo('http://uitest.taobao.com/tool/inject-proxy.php'); }
+                    <input type="text" name="target_uri" class="test-input J_TestURI" value="<?php
+                        if ($idx == 1){ echo('http://www.baidu.com'); }
                     ?>" />
                 </td>
                 <td>&nbsp;</td>
             </tr><tr>
                 <th>用例地址</th>
                 <td class="J_CaseSetting">
-                    <input type="text" name="inject_uri[]" class="test-input J_CaseURI" value="<?
-                        if ($idx == 1){ echo('http://uitest.taobao.com/tool/test/test-inject.js'); }
+                    <input type="text" name="inject_uri[]" class="test-input J_CaseURI" value="<?php
+                        $testCaseURI = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+                        $slashLastPos = strrpos($testCaseURI, '/');
+
+                        $testCaseURI = substr($testCaseURI, 0, $slashLastPos);
+
+                            
+                        if ($idx == 1){ echo('http://' . $testCaseURI . '/test/test-inject.js'); }
                     ?>"  />
                 </td>
                 <td>
@@ -49,6 +55,6 @@
     <!-- 存放 frame 的地方 -->
     <div class="test-frame J_TestFrame"></div>
 </div>
-<? } ?>
+<?php } ?>
 </body>
 </html>
