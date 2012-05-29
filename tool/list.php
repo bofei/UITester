@@ -27,12 +27,12 @@
                         include_once('conn_db.php');
 
                         $sql = 'select * from list';
-                        $queryListResult = mysql_query($sql);
+                        $query_list_result = mysql_query($sql);
 
-                        $result_num = mysql_num_rows($queryListResult);
+                        $result_num = mysql_num_rows($query_list_result);
 
                         for($idx = 0; $idx < $result_num; $idx ++){
-                            $result_item = mysql_fetch_assoc($queryListResult);
+                            $result_item = mysql_fetch_assoc($query_list_result);
 
                             echo('
                                 <tr>

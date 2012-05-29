@@ -4,9 +4,9 @@
 
     $modify_tag = $_REQUEST['modify_tag'];
     $task_id = $_REQUEST['task_id'];
-    $task_name = $_REQUEST['task_name'];
-    $task_target_uri = $_REQUEST['task_target_uri'];
-    $task_inject_uri = $_REQUEST['task_inject_uri'];
+    $task_name = trim($_REQUEST['task_name']);
+    $task_target_uri = trim($_REQUEST['task_target_uri']);
+    $task_inject_uri = trim($_REQUEST['task_inject_uri']);
 
     // modify current record
     if ($modify_tag === 'modify'){
@@ -52,7 +52,5 @@
     if ($result === false){
         print_r('查询出错信息 [' . mysql_errno() . ']: ' . mysql_error());
     }
-
-
 
 ?>
