@@ -95,8 +95,7 @@
 
 
     var observer = new MutationObserver(function (mutations) {
-        console.log(start)
-        if (!start)return;
+
         if (caseType != "event")return;
         console.log(mutations)
         //事件发生，lock;
@@ -105,7 +104,7 @@
 
         mutations.forEach(function (mutation) {
             console.log(mutation)
-            
+
             if (D.parent(mutation.target, "#test-page")) {
                 realMutations.push(mutation);
 
@@ -160,19 +159,20 @@
 
     var createTestCase = function (action, mutations) {
 
-        var testCase = 'describe("交互动作测试用例"，function(){</br>';
+
+        var testCase = 'describe("交互动作测试用例"，function(){\n';
         var selector = elToSelector(action.target);
         var type = action.type;
-        testCase += '<span class="tab1"></span>it("' + type + '  ' + selector + '", function(){</br>';
+        testCase += '  it("' + type + '  ' + selector + '", function(){\n';
 
         for (var i = 0; i < changeEventRecords.length; i++) {
-            testCase += '<span class="tab2"></span>KISSY.DOM.get("' + elToSelector(changeEventRecords[i].target) + '").value ="' + changeEventRecords[i].newValue + '";</br>';
+            testCase += '     KISSY.DOM.get("' + elToSelector(changeEventRecords[i].target) + '").value ="' + changeEventRecords[i].newValue + '";\n';
         }
         inputRecords = [];
-        testCase += '<span class = "tab2" ></span>simulate(KISSY.DOM.get("' + selector + '"),"' + type + '");</br>';
+        testCase += '    simulate(KISSY.DOM.get("' + selector + '"),"' + type + '");\n';
 
 
-        testCase += '<span class="tab2"></span>waitsMatchers(function(){</br>'
+        testCase += '    waitsMatchers(function(){\n'
         mutations.forEach(function (mutation) {
 
             if (mutation.type == "attributes") {
@@ -182,28 +182,63 @@
 
                 if (!oldValue && newValue) {
                     console.log("ADD ATTR", mutation.attributeName, oldValue, newValue);
-                    testCase += '<span class="tab3"></span>except(KISSY.DOM.get("' + selector + '")).toHaveAttr("' + mutation.attributeName + '","' + newValue + '");</br>';
+                    testCase += '      except(KISSY.DOM.get("' + selector + '")).toHaveAttr("' + mutation.attributeName + '","' + newValue + '");\n';
 
                 }
                 ;
                 if (oldValue && !newValue) {
                     console.log("remove ATTR", mutation.attributeName, oldValue, newValue)
-                    testCase += '<span class="tab3"></span>except(KISSY.DOM.get("' + selector + '")).not.toHaveAttr("' + mutation.attributeName + '","' + oldValue + '");</br>';
+                    testCase += '      except(KISSY.DOM.get("' + selector + '")).not.toHaveAttr("' + mutation.attributeName + '","' + oldValue + '");\n';
 
                 }
                 ;
                 if (oldValue && newValue) {
                     console.log("change ATTR", mutation.attributeName, oldValue, newValue)
-                    testCase += '<span class="tab3"></span>except(KISSY.DOM.get("' + selector + '")).toHaveAttr("' + mutation.attributeName + '","' + newValue + '");</br>';
+                    testCase += '      except(KISSY.DOM.get("' + selector + '")).toHaveAttr("' + mutation.attributeName + '","' + newValue + '");\n';
 
                 }
                 ;
             }
+            if (mutation.type == "childList") {
+                if (mutation.addedNodes.length>0) {
+                    for(var i = 0;i<mutation.addedNodes.length;i++){
+                        testCase += '      except(KISSY.DOM.get("' + selector + '")).toHaveAttr("' + mutation.attributeName + '","' + newValue + '");\n';
+                    }
+
+
+
+                }
+                else {
+                    var oldValue = mutation.oldValue;
+                    var newValue = mutation.target.getAttribute(mutation.attributeName)
+                    var selector = elToSelector(action.target)
+
+                    if (!oldValue && newValue) {
+                        console.log("ADD ATTR", mutation.attributeName, oldValue, newValue);
+                        testCase += '<span class="tab3"></span>except(KISSY.DOM.get("' + selector + '")).toHaveAttr("' + mutation.attributeName + '","' + newValue + '");\n</br>';
+
+                    }
+                    ;
+                    if (oldValue && !newValue) {
+                        console.log("remove ATTR", mutation.attributeName, oldValue, newValue)
+                        testCase += '<span class="tab3"></span>except(KISSY.DOM.get("' + selector + '")).not.toHaveAttr("' + mutation.attributeName + '","' + oldValue + '");\n</br>';
+
+                    }
+                    ;
+                    if (oldValue && newValue) {
+                        console.log("change ATTR", mutation.attributeName, oldValue, newValue)
+                        testCase += '<span class="tab3"></span>except(KISSY.DOM.get("' + selector + '")).toHaveAttr("' + mutation.attributeName + '","' + newValue + '");\n</br>';
+
+                    }
+                    ;
+                }
+
+            }
         });
 
-        testCase += '<span class="tab2"></span>})</br>'
+        testCase += '    })\n'
 //showMsg(123);
-        testCase += '<span class="tab1"></span>});</br>});'
+        testCase += '  });\n});'
         showMsg(testCase)
 
     }

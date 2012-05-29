@@ -24,6 +24,7 @@
             height:100%;
             overflow:hidden;;
             font-size:12px;
+            background-color:#EEE;
         }
         #page{
             display:-webkit-box;
@@ -46,7 +47,7 @@
         }
         #nav li{
             list-style:none;
-            float:left;
+            float:right;
             height:20px;
             line-height:20px;
             margin-right:20px;
@@ -75,6 +76,8 @@
             width:50px;
             border:solid 1px #ccc;
             margin-right:2px;
+            width:0px;
+            overflow:hidden;;
         }
         #content .sub a{
             display:block;;
@@ -105,25 +108,62 @@
             margin-left:3px;
         }
         #content .main .page{
-            -webkit-box-flex:1;
-            -moz-box-flex:1;
-            box-flex:1;
+            height:300px;
             overflow:auto;
+        }
+        #content .main .page iframe{
+            border:none;
         }
         #content .main  .code{
             border:solid 1px #ccc;
-            height:200px;
             overflow:auto;
+            background:#fff;
+            -webkit-box-flex:1;
+            -moz-box-flex:1;
+            box-flex:1;
         }
         .configs{
         }
-        .configs .title{
+        .configs h3{
             display:block;;
             height:20px;
             line-height:20px;
             font-weight:bold;
             background-color:#ccc;
             padding-left:5px;
+            position:relative;
+            overflow:hidden;;
+            margin:0;
+            background-color:#F8F8F8;
+            background-image:-webkit-gradient(linear, left top, left bottom, from(#F8F8F8), to(#ECECEC));
+            background-image:-webkit-linear-gradient(top, #F8F8F8, #ECECEC);
+            border-top:1px solid #C6C6C6;
+            border-bottom:1px solid #C6C6C6;
+            font-size:12px;
+
+
+
+        }
+        .configs h3 a{
+            color:#666;
+        }
+        .configs h3 a.status{
+            position:absolute;
+            top:4px;
+            right:10px;;
+            text-indent:-500px;
+            display:block;
+            width:10px;
+            height:10px;
+            border-radius:5px;
+            background-color:#000;
+            cursor:pointer;
+        }
+        .configs h3 a.start{
+            background-color:#DD4B39;
+        }
+        .configs h3 a.stop{
+            background-color:#000;
         }
         .configs  ul{
             margin-left:10px;
@@ -143,6 +183,20 @@
             width:60px;
             display:inline-block;
         }
+        #page .text-editor{
+            font-size:12px;
+        }
+        .ks-resizable-handler-b{
+            position:absolute;;
+            bottom:0;
+            left:0;
+            opacity:0.5;
+            background:#eee;
+            height:5px;
+            width:100%;
+            z-index:1000000;
+            cursor: n-resize;
+        }
 
     </style>
 </head>
@@ -160,11 +214,7 @@
 -->
 <div id="page">
     <div id="nav">
-        <ul>
-            <li><a href="#" class="status" data-start="false">开始</a></li>
-
-
-        </ul>
+       UITest
     </div>
     <div id="content">
         <div class="sub">
@@ -204,7 +254,7 @@
 
 
             </div>
-            <div class="code" contenteditable="true">
+            <div class="code" style="position:relative;">
                 <div id="test-case">
 
                 </div>
@@ -212,30 +262,45 @@
         </div>
         <div class="aside">
             <ul class="configs">
-                <li><a class="title">事件</a>
+                <li><h3 class="event"><a class="title">事件</a><a class="status start">记录</a></h3>
                     <ul>
                         <li><label><input type="checkbox"/>click</label><a href=""></a></li>
                         <li><label><input type="checkbox"/>dbclick</label><a href=""></a></li>
                     </ul>
                 </li>
-                <li><a class="title">属性</a>
+                <li><h3 class="postion"><a class="title">定位</a><a class="status">记录</a></h3>
                     <ul>
-                        <li><label><input type="checkbox"/>click</label><a href=""></a></li>
-                        <li><label><input type="checkbox"/>dbclick</label><a href=""></a></li>
+
                     </ul>
                 </li>
-                <li><a class="title">样式</a>
+                <li><h3 class="align"><a class="title">对齐</a><a class="status">记录</a></h3>
                     <ul>
-                        <li><label><input type="checkbox"/>click</label><a href=""></a></li>
-                        <li><label><input type="checkbox"/>dbclick</label><a href=""></a></li>
+
                     </ul>
                 </li>
-                <li><a class="title">对齐</a>
+
+
+                <li><h3 class="innerHTML"><a class="title">内容</a><a class="status">记录</a></h3>
                     <ul>
-                        <li><label><input type="checkbox"/>偏移量</label><a href=""></a></li>
-                        <li><label><input type="checkbox"/>dbclick</label><a href=""></a></li>
+
                     </ul>
                 </li>
+                <li><h3 class="subtree"><a class="title">结构</a><a class="status">记录</a></h3>
+                    <ul>
+
+                    </ul>
+                </li>
+                <li><h3 class="css"><a class="title">样式</a><a class="status">记录</a></h3>
+                    <ul>
+
+                    </ul>
+                </li>
+                <li><h3 class="attr"><a class="title">属性</a><a class="status">记录</a></h3>
+                    <ul>
+
+                    </ul>
+                </li>
+
                 <!--<li><a class="title" href="#">选择</a>
                     <ul>
                         <li><label><input type="checkbox"/>只当前元素</label><a href=""></a></li>
@@ -252,6 +317,28 @@
 
     </div>
 </div>
+
+
+<!-- 编辑器--->
+
+<script type="text/javascript" src="./editol/editol.js"></script>
+<link rel="stylesheet" type="text/css" href="./editol/editol.css">
+<script type="text/javascript">
+
+    var editor = document.getElementById("test-case");
+    var source = "";
+    var textModel = new WebInspector.TextEditorModel();
+
+
+    var textEditor = new WebInspector.TextViewer(textModel);
+    editor.appendChild(textEditor.element)
+    textEditor.readOnly = false;
+    textEditor.mimeType = "text/javascript";
+    textModel.setText(null, source);
+    console.log(textModel)
+
+
+</script>
 <script>
     var S = KISSY, D = KISSY.DOM;
     var oldCaseType , caseType;
@@ -262,61 +349,77 @@
             var s = D.create("<span>" + arguments[i] + "</span>");
             p.appendChild(s);
         }
-        D.get("#test-case").appendChild(p)
+        textModel.appendText(msg)
+        var lines = D.query(".webkit-line-content");
+        var lastLines = lines[lines.length - 1];
+
+        lastLines.scrollIntoView()
     }
 
-    E.on(".type", "click", function (e) {
-        var target = e.target;
-        caseTest = D.attr(target, "data-value")
-        postmsg.send({
-            target:D.get("#iframe-target").contentWindow,
-            data  :{set:{
-                caseType:caseTest
-            }}
-        })
-    })
     E.on(".status", "click", function (e) {
         var target = e.target;
-        var start = D.attr(target, "data-start");
-        if (start == "false") {
-            target.innerHTML = "暂停"
-                postmsg.send({
-                    target:D.get("#iframe-target").contentWindow,
-                    data  :{set:{
-                        start:true
-                    }}
-                })
 
-            D.attr(target, "data-start", true);
-        } else {
-            target.innerHTML = "开始"
+        if (D.hasClass(target, "start")) {
+
+            var data = {
+                set:{
+                    caseType:"null"
+                }
+            }
+            console.log(data)
+            postmsg.send({
+                target:D.get("#iframe-target").contentWindow,
+                data  :data
+            })
+            D.removeClass(target, "start");
+            return;
+        }
+        else {
+            var all = D.query(".status");
+            for (var i = 0; i < all.length; i++) {
+                D.removeClass(all[i], "start");
+            }
+
+            D.addClass(target, 'start');
+            caseTest = D.attr(target.parentNode, "class");
+            console.log(caseTest)
             postmsg.send({
                 target:D.get("#iframe-target").contentWindow,
                 data  :{set:{
-                    start:false
+                    caseType:caseTest
                 }}
             })
 
-            D.attr(target, "data-start", false);
         }
 
-    })
-    E.on(".stop", "click", function (e) {
 
-        postmsg.send({
-            target:D.get("#iframe-target").contentWindow,
-            data  :{set:{
-                start:false
-            }}
-        })
     })
+
 
     postmsg.bind(function (data) {
         showMsg(data.caseCode);
     })
 
 </script>
+<style>
 
+
+
+</style>
+<script>
+    KISSY.use("node, button, resizable", function (S, Node, Button, Resizable) {
+        var r = new Resizable({
+            node    :".page",
+            // 指定可拖动的位置
+            handlers:["b"]
+
+
+        });
+
+
+    });
+
+</script>
 
 </body>
 </html>

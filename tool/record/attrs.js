@@ -6,14 +6,14 @@
 
     var createTestCase = function (target) {
 
-        var testCase = 'describe("属性测试用例"，function(){</br>';
+        var testCase = 'describe("属性测试用例"，function(){\n';
         var selector = elToSelector(target);
         var attrs = target.attributes;
 
-        testCase += '<span class="tab1"></span>it("' + selector + ' has attribute"'  + ', function(){</br>';
+        testCase += '  it("' + selector + ' has attribute"'  + ', function(){\n';
 
 
-        testCase += '<span class="tab2"></span>var target = KISSY.DOM.get("' + selector + '")";</br>';
+        testCase += '    var target = KISSY.DOM.get("' + selector + '")";\n';
         for (var i = 0; i < attrs.length; i++) {
 
 
@@ -21,21 +21,21 @@
             var value = attrs[i].value;
 
 
-            testCase += '<span class="tab2"></span>except(target).toHaveAttr("' + name + '","' + value + '");</br>';
+            testCase += '    except(target).toHaveAttr("' + name + '","' + value + '");\n';
 
 
         }
 
 
         //showMsg(123);
-        testCase += '<span class="tab1"></span>});</br>});'
+        testCase += '  });\n});\n'
         showMsg(testCase)
 
     }
 
     //事件类型
     E.on(document.body, "click", function (e) {
-        console.log(e)
+
         if (caseType == "attr") {
             var target = e.target;
             var selector = elToSelector(e.target);

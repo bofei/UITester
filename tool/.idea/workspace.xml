@@ -22,55 +22,97 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="record.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="record.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/record/record.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="299" column="21" selection-start="9533" selection-end="9533" vertical-scroll-proportion="-4.0">
+            <state line="194" column="20" selection-start="4936" selection-end="4936" vertical-scroll-proportion="0.54924875">
+              <folding>
+                <element signature="tag#div#0;tag#div#1;tag#div#0;tag#body#0;tag#html#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="share.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://D:/workspace/trunk/p/snsdk/src/widget/share.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="166" column="49" selection-start="7615" selection-end="7615" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ajax.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://D:/workspace/trunk/p/snsdk/src/core/ajax.js">
+      <file leaf-file-name="editol.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/record/editol/editol.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="473" column="36" selection-start="15346" selection-end="15350" vertical-scroll-proportion="-11.68">
+            <state line="8171" column="25" selection-start="306868" selection-end="306868" vertical-scroll-proportion="102.24">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="comment.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://D:/workspace/trunk/p/snsdk/src/widget/comment.js">
+      <file leaf-file-name="textViewer.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../editorOnline/src/css/textViewer.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="476" column="0" selection-start="16216" selection-end="16216" vertical-scroll-proportion="6.24">
+            <state line="2" column="23" selection-start="59" selection-end="59" vertical-scroll-proportion="0.0">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TextEditorModel.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../editorOnline/src/js/TextEditorModel.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="117" column="90" selection-start="3753" selection-end="3753" vertical-scroll-proportion="-9.88">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="util.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://D:/workspace/trunk/p/snsdk/src/core/util.js">
+        <entry file="file://$PROJECT_DIR$/../../undefine/20110930/util.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="173" column="17" selection-start="4288" selection-end="4297" vertical-scroll-proportion="0.0">
+            <state line="193" column="6" selection-start="7763" selection-end="7763" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="editor.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../editorOnline/demo/editor.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="0" selection-start="87" selection-end="87" vertical-scroll-proportion="-4.6153846">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="setwidget.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://D:/workspace/trunk/p/snsdk/demo/setwidget.js">
+      <file leaf-file-name="events.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/record/events.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="414" column="57" selection-start="14416" selection-end="14416" vertical-scroll-proportion="0.54738563">
+            <state line="168" column="30" selection-start="4091" selection-end="4091" vertical-scroll-proportion="-55.68">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="face.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://D:/workspace/trunk/p/snsdk/src/util/face.js">
+      <file leaf-file-name="core.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/record/core.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="9" selection-start="13" selection-end="13" vertical-scroll-proportion="0.0">
+            <state line="32" column="82" selection-start="920" selection-end="920" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="attrs.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/record/attrs.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="55" selection-start="209" selection-end="209" vertical-scroll-proportion="11.8">
               <folding />
             </state>
           </provider>
@@ -91,18 +133,27 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/record.html" />
-        <option value="$PROJECT_DIR$/record/record.html" />
         <option value="D:/workspace/trunk/p/snsdk/src/core/ajax.js" />
         <option value="D:/workspace/trunk/p/snsdk/src/util/face.js" />
         <option value="D:/workspace/trunk/p/snsdk/src/core/util.js" />
         <option value="D:/workspace/trunk/p/snsdk/src/widget/comment.js" />
         <option value="D:/workspace/trunk/p/snsdk/demo/setwidget.js" />
+        <option value="$PROJECT_DIR$/record/postmsg.js" />
+        <option value="D:/workspace/trunk/p/snsdk/src/core/active.js" />
+        <option value="$PROJECT_DIR$/record/core.js" />
+        <option value="$PROJECT_DIR$/record/testiframe.html" />
+        <option value="$PROJECT_DIR$/../../editorOnline/demo/editor.html" />
+        <option value="$PROJECT_DIR$/../../editorOnline/src/js/TextEditorModel.js" />
+        <option value="$PROJECT_DIR$/record/editol/editol.js" />
+        <option value="D:/workspace/trunk/p/snsdk/src/widget/share.js" />
+        <option value="$PROJECT_DIR$/record/attrs.js" />
+        <option value="$PROJECT_DIR$/record/events.js" />
+        <option value="$PROJECT_DIR$/record/record.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1280" />
+    <option name="width" value="1271" />
     <option name="height" value="760" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -148,8 +199,8 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="options.lastSelected" value="web.server" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="JavascriptDebugSession" factoryName="Local">
@@ -189,15 +240,16 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1280" height="760" extended-state="1" />
+    <frame x="0" y="0" width="1271" height="760" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.04113924" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.041434262" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24940239" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -207,7 +259,6 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -263,45 +314,117 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/record/record.html">
+    <entry file="file://D:/workspace/trunk/p/snsdk/src/core/util.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="299" column="21" selection-start="9533" selection-end="9533" vertical-scroll-proportion="-4.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/workspace/trunk/p/snsdk/src/core/ajax.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="473" column="36" selection-start="15346" selection-end="15350" vertical-scroll-proportion="-11.68">
-          <folding />
-        </state>
+        <state line="173" column="17" selection-start="4288" selection-end="4297" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://D:/workspace/trunk/p/snsdk/src/util/face.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="9" selection-start="13" selection-end="13" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/workspace/trunk/p/snsdk/src/core/util.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="173" column="17" selection-start="4288" selection-end="4297" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/workspace/trunk/p/snsdk/src/widget/comment.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="476" column="0" selection-start="16216" selection-end="16216" vertical-scroll-proportion="6.24">
-          <folding />
-        </state>
+        <state line="1" column="9" selection-start="13" selection-end="13" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://D:/workspace/trunk/p/snsdk/demo/setwidget.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="414" column="57" selection-start="14416" selection-end="14416" vertical-scroll-proportion="0.54738563">
+        <state line="414" column="57" selection-start="14416" selection-end="14416" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/workspace/trunk/p/snsdk/src/core/active.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="0" selection-start="1019" selection-end="1019" vertical-scroll-proportion="0.12307692">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/record/postmsg.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="80" selection-start="1558" selection-end="1561" vertical-scroll-proportion="1.2307693">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/record/testiframe.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="117" column="20" selection-start="3104" selection-end="3104" vertical-scroll-proportion="-5.882353">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../undefine/20110930/util.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="193" column="6" selection-start="7763" selection-end="7763" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../editorOnline/demo/editor.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="87" selection-end="87" vertical-scroll-proportion="-4.6153846">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../editorOnline/src/css/textViewer.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="23" selection-start="59" selection-end="59" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../editorOnline/src/js/TextEditorModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="117" column="90" selection-start="3753" selection-end="3753" vertical-scroll-proportion="-9.88">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/record/core.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="82" selection-start="920" selection-end="920" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/record/editol/editol.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8171" column="25" selection-start="306868" selection-end="306868" vertical-scroll-proportion="102.24">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/workspace/trunk/p/snsdk/src/widget/share.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="166" column="49" selection-start="7615" selection-end="7615" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/record/attrs.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="55" selection-start="209" selection-end="209" vertical-scroll-proportion="11.8">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/record/events.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="168" column="30" selection-start="4091" selection-end="4091" vertical-scroll-proportion="-55.68">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/record/record.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="194" column="20" selection-start="4936" selection-end="4936" vertical-scroll-proportion="0.54924875">
+          <folding>
+            <element signature="tag#div#0;tag#div#1;tag#div#0;tag#body#0;tag#html#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

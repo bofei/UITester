@@ -3,10 +3,12 @@
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
     <file url="file://$PROJECT_DIR$/record/record.html" charset="GBK" />
     <file url="file://D:/workspace/trunk/p/snsdk/demo/setwidget.js" charset="GBK" />
+    <file url="file://D:/workspace/trunk/p/snsdk/src/core/active.js" charset="GBK" />
     <file url="file://D:/workspace/trunk/p/snsdk/src/core/ajax.js" charset="GBK" />
     <file url="file://D:/workspace/trunk/p/snsdk/src/core/util.js" charset="GBK" />
     <file url="file://D:/workspace/trunk/p/snsdk/src/util/face.js" charset="GBK" />
     <file url="file://D:/workspace/trunk/p/snsdk/src/widget/comment.js" charset="GBK" />
+    <file url="file://D:/workspace/trunk/p/snsdk/src/widget/share.js" charset="GBK" />
   </component>
 </project>
 
