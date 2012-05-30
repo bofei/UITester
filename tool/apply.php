@@ -27,12 +27,11 @@
         $iframe_uri = $result_item['task_target_uri'];
         $iframe_uri .= (strpos($iframe_uri, '?') !== false) ? '&' : '?';
 
-        $iframe_uri .= 'target_uri=' . $result_item['task_target_uri'] . '&';
-        $iframe_uri .= 'inject_uri=' . $result_item['task_inject_uri'] . '&';
-        $iframe_uri .= '__TEST__=true';
+        $iframe_uri .= 'inject_uri=' . $result_item['task_inject_uri'];
+        $iframe_uri .= '&__TEST__';
 
         echo('<div style="font-size: 12px; padding: 3px; margin-bottom: 10px; background: yellow; color: red;">×¢ÈëµÄµØÖ·: ' . $iframe_uri . '</div>');
-        echo('<iframe src="' . $iframe_uri . '" frameborder="0" width="100%" height="800"></iframe>');
+        echo('<iframe src="' . $iframe_uri . '" frameborder="0" style="border: 1px solid #000" width="100%" height="800"></iframe>');
     ?>
 
 </body>

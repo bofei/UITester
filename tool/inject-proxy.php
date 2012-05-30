@@ -1,49 +1,65 @@
 <?php
-    //$queryString = $_SERVER['QUERY_STRING'];
-    //$sourceURI = $_SERVER['HTTP_HOST'] . $_SERVER["SCRIPT_NAME"]; 
+    function dump ($target){
+        echo('-----------debug info----------');
+        echo('<pre>');
+        var_dump($target);
+        echo('</pre>');
+        exit;
+    }
 
-    echo('welcome to proxy<br>');
-    echo('post<br>');
-    var_dump($_POST);
-    echo('get<br>');
-    var_dump($_GET);
+    #$isGetByCurl = strpos('__TEST__', $_SERVER['QUERY_STRING']);
 
-    $isGetByCurl = $_REQUEST['__TEST__'];
+    // pre formating
+    $query_string = str_replace('%3f', '?', $_SERVER['QUERY_STRING']);
+    $query_string = str_replace('q=', '', $query_string);
+    $query_string = str_replace('&__TEST__', '', $query_string);
 
-    $targetURI = $_REQUEST['target_uri'];
-    $injectURIs = $_REQUEST['inject_uri'];
+    // get position of split place
+    $pos_injejct_uri = strpos($query_string, 'inject_uri');
+    
+    $target_uri = substr($query_string, 0, $pos_injejct_uri);
+    $target_uri = str_replace('target_uri=', '', $target_uri);
+
+    $inject_uri = substr($query_string, $pos_injejct_uri, strlen($query_string));
+    $inject_uri = str_replace('inject_uri=', '', $inject_uri);
+
+    // make sure inject_uri to be array, so it can 
+    // be merged bellow
+    if (!is_array($inject_uri)){
+        $inject_uri = array(
+            $inject_uri
+        );
+    }
 
     $ch = curl_init();
 
-    curl_setopt($ch, CURLOPT_URL, $targetURI);
+    curl_setopt($ch, CURLOPT_URL, $target_uri);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_HEADER, 0);
     $output = curl_exec($ch);
     curl_close($ch);
 
-    $injectList = array(
-        '../lib/jasmine.js',
-        '../lib/jasmine-html.js',
-        '../lib/event-simulate.js'
+    $inject_list = array(
+        'http://uitest.taobao.net/UITester/lib/jasmine.js',
+        'http://uitest.taobao.net/UITester/lib/jasmine-html.js',
+        'http://uitest.taobao.net/UITester/lib/event-simulate.js'
     );
 
-    $injectList = array_merge($injectList, $injectURIs);
+    $inject_list = array_merge($inject_list, $inject_uri);
 
-    //var_dump($injectList);
-
-    function createInjectList ($list){
+    function create_inject_list ($list){
         $tmp = '';
 
         foreach($list as $item){
-            $tmp .= '<script src="' . $item . '"></script>\n';
+            $tmp .= '<script src="' . $item . '"></script>';
         }
 
         return $tmp;
     }
 
-    if ($isGetByCurl === 'true'){
-        $output = str_replace('</body>', createInjectList($injectList) . 'insert</body>', $output);
-    }
+    $output = str_replace('<body>', '<body><div style="background: red;">injected</div>', $output);
+    $output = str_replace('</body>', create_inject_list($inject_list) . '</body>', $output);
 
-    //echo($output);
+    echo($output);
 ?>
+
