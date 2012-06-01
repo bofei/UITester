@@ -10,7 +10,12 @@
 <body>
 
     <?php
-        $task_id = $_REQUEST['task_id'];
+        $task_id = trim($_REQUEST['task_id']);
+
+        if ($task_id === ''){
+            echo('未指定参数 task_id');
+            exit;
+        }
 
         include_once('conn_db.php');
 
@@ -22,11 +27,11 @@
         $iframe_uri = $result_item['task_target_uri'];
         $iframe_uri .= (strpos($iframe_uri, '?') !== false) ? '&' : '?';
 
-        $iframe_uri .= 'target_uri=' . $result_item['task_target_uri'] . '&';
-        $iframe_uri .= 'inject_uri=' . $result_item['task_inject_uri'] . '&';
-        $iframe_uri .= '__TEST__=true';
+        $iframe_uri .= 'inject_uri=' . $result_item['task_inject_uri'];
+        $iframe_uri .= '&__TEST__';
 
-        echo('<iframe src="' . $iframe_uri . '" frameborder="0" width="100%" height="100%"></iframe>');
+        echo('<div style="font-size: 12px; padding: 3px; margin-bottom: 10px; background: yellow; color: red;">注入的地址: ' . $iframe_uri . '</div>');
+        echo('<iframe src="' . $iframe_uri . '" frameborder="0" style="border: 1px solid #000" width="100%" height="800"></iframe>');
     ?>
 
 </body>
