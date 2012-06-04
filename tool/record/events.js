@@ -4,90 +4,72 @@
     var S = KISSY, D = S.DOM, E = S.Event;
 
 
-//事件类型
-
-//交互事件测试
-// mouse events supported
-    var Events = {};
-    Events.mouseEvents = {
-        click     :1,
-        dblclick  :1,
-        mouseover :1,
-        mouseout  :1,
-        mouseenter:1,
-        mouseleave:1,
-        mousedown :1,
-        mouseup   :1,
-        mousemove :1
-    };
-
-// key events supported
-    Events.keyEvents = {
-        keydown :1,
-        keyup   :1,
-        keypress:1
-    };
-
-// HTML events supported
-    Events.uiEvents = {
-        blur  :1,
-        change:1,
-        focus :1,
-        resize:1,
-        scroll:1,
-        select:1
-    };
-
-// events that bubble by default
-    Events.bubbleEvents = {
-        //scroll:1,
-        // resize:1,
-        //reset :1,
-        //submit:1,
-        // change:1,
-        // select:1,
-        // error :1,
-        //abort :1
-    };
     var actionLock = false;
     var changeEventRecords = [];
     var preEventRecord;
     var mutationRecords = [];
-//将元素转化的全局唯一的选择器
-//记录事件
-    for (var bp in Events) {
 
-        for (var p in Events[bp]) {
-            (function (type) {
-
-                E.on(document.body, type, function (e) {
-                    if (caseType != "event")return;
-
-                    var record = {
-                        type  :e.type,
-                        event :e,
-                        target:e.target
-                    }
-                    if (e.type == "change") {
-
-                        record.newValue = e.target.value
-                        changeEventRecords.push(record);
-                    }
-                    else {
-                        preEventRecord = record;
-                    }
-                    if (mutationRecords.length > 0) {
-                        var newmutationRecords = mutationRecords;
-                        createTestCase(preEventRecord, newmutationRecords)
-                        mutationRecords = [];
-                    }
-
-
-                })
-            })(p);
-
+    var allEventRecord = [];
+    var validEvent = function (target, type) {
+        var result = false;
+        if (target['on' + type])result = true;
+        else if (target["_bindEventType"] && target["_bindEventType"][type]) {
+            result = true
         }
+
+        return result;
     }
+
+    for (var p in uitest.configs.events) {
+
+        (function (type) {
+
+            document.body.addEventListener(type, function (e) {
+
+
+                if (uitest.configs.caseType != "event")return;
+
+                if (!uitest.configs.events[type])return;
+
+
+                if (validEvent(e.target, e.type)) allEventRecord.push(S.merge({}, e));
+
+
+                var record = {
+                    type  :e.type,
+                    event :e,
+                    target:e.target
+                }
+                if (e.type == "change") {
+
+                    record.newValue = e.target.value
+                    changeEventRecords.push(record);
+                }
+                else {
+                    preEventRecord = record;
+                }
+                if (mutationRecords.length > 0) {
+
+                    var newmutationRecords = mutationRecords;
+
+
+                    for (var i = 0; i < allEventRecord.length && i < 50; i++) {
+                        var et = allEventRecord[i];
+                        //  simulate(et.target, et.type);
+                        console.log(et.type);
+
+                    }
+
+
+                    mutationRecords = [];
+                }
+
+
+            }, true, true)
+        })(p);
+
+    }
+
 
 //记录变化
 
@@ -96,55 +78,13 @@
 
     var observer = new MutationObserver(function (mutations) {
 
-        if (caseType != "event")return;
-        console.log(mutations)
-        //事件发生，lock;
-        if (actionLock)return;
-        var realMutations = [];
-
-        mutations.forEach(function (mutation) {
-            console.log(mutation)
-
-            if (D.parent(mutation.target, "#test-page")) {
-                realMutations.push(mutation);
-
-            }
-        })
-
-        if (realMutations.length == 0)return;
-
-        mutationRecords = realMutations
-        actionLock = true;
+        if (uitest.configs.caseType != "event")return;
+        window.setTimeout(function () {
+            createTestCase(allEventRecord, mutations)
+            allEventRecord = [];
+        }, 0)
 
 
-        actionLock = false;
-
-
-        /*
-         mutations.forEach(function (mutation) {
-         console.log(mutation)
-         if (mutation.type == "attributes") {
-         var oldValue = mutation.oldValue;
-         var newValue = mutation.target.getAttribute(mutation.attributeName)
-
-         if (!oldValue && newValue) {
-         console.log("ADD ATTR", mutation.attributeName, oldValue, newValue)
-
-         }
-         ;
-         if (oldValue && !newValue) {
-         console.log("remove ATTR", mutation.attributeName, oldValue, newValue)
-
-         }
-         ;
-         if (oldValue && newValue) {
-         console.log("change ATTR", mutation.attributeName, oldValue, newValue)
-
-         }
-         ;
-         }
-         });
-         */
     });
 
     observer.observe(document, {
@@ -157,89 +97,123 @@
     });
 
 
-    var createTestCase = function (action, mutations) {
+    var createTestCase = function (allEventRecord, mutations) {
+
+        var testCase = 'describe("交互动作测试用例",function(){\n';
 
 
-        var testCase = 'describe("交互动作测试用例"，function(){\n';
-        var selector = elToSelector(action.target);
-        var type = action.type;
-        testCase += '  it("' + type + '  ' + selector + '", function(){\n';
+        testCase += '  it("' + 12 + '", function(){\n';
 
-        for (var i = 0; i < changeEventRecords.length; i++) {
-            testCase += '     KISSY.DOM.get("' + elToSelector(changeEventRecords[i].target) + '").value ="' + changeEventRecords[i].newValue + '";\n';
+        var expectNum = 0;
+        var verifys = [];
+
+
+        mutations.forEach(function (mutation) {
+            console.log(mutation)
+
+
+            if (mutation.type == "attributes") {
+
+                var oldValue = mutation.oldValue;
+                var newValue = mutation.target.getAttribute(mutation.attributeName)
+
+                var selector = uitest.inner.elToSelector(mutation.target)
+
+                if (!oldValue && newValue) {
+                    var v = 'exp' + (++expectNum)
+                    testCase += '    var ' + v + ' = expect("' + selector + '").willAddAttr("' + mutation.attributeName + '","' + newValue + '");\n';
+                    verifys.push(v + ".verify();")
+                }
+
+                if (oldValue && !newValue) {
+                    var v = 'exp' + (++expectNum)
+                    testCase += '    var exp' + (++expectNum) + ' = expect("' + selector + '").willRemoveAttr("' + mutation.attributeName + '","' + oldValue + '");\n';
+                    verifys.push(v + ".verify();")
+                }
+
+                if (oldValue && newValue) {
+                    var v = 'exp' + (++expectNum)
+                    testCase += '    var exp' + (++expectNum) + ' = expect("' + selector + '").willModifyAttr("' + mutation.attributeName + '","' + oldValue + '","' + newValue + '");\n';
+                    verifys.push(v + ".verify();")
+                }
+                ;
+            }
+            if (mutation.type == "characterData") {
+
+                var target = mutation.target.parentNode;
+                var newValue = target.innerHTML;
+
+                var selector = uitest.inner.elToSelector(target)
+
+
+                var v = 'exp' + (++expectNum)
+                testCase += '    var exp' + (++expectNum) + ' = expect("' + selector + '").willModifyInnerHTML("' + newValue + '");\n';
+                verifys.push(v + ".verify();")
+
+            }
+            if (mutation.type == "childList") {
+
+
+                var addedNodes = mutation.addedNodes;
+                var removedNodes = mutation.removedNodes;
+
+
+                var selector = uitest.inner.elToSelector(mutation.target)
+
+
+                if (addedNodes.length > 0) {
+                    for (var i = 0; i < addedNodes.length; i++) {
+                        var v = 'exp' + (++expectNum);
+                        var se = uitest.inner.elToSelector(addedNodes[i])
+                        testCase += '    var ' + v + ' = expect("' + selector + '").willAddChildren("' + se + '");\n';
+                        verifys.push(v + ".verify();")
+                    }
+
+
+                }
+                if (removedNodes.length > 0) {
+                    for (var i = 0; i < removedNodes.length; i++) {
+                        var v = 'exp' + (++expectNum);
+                        var se = uitest.inner.elToSelector(removedNodes[i])
+                        testCase += '    var ' + v + ' = expect("' + selector + '").willRemoveChildren("' + se + '");\n';
+                        verifys.push(v + ".verify();")
+                    }
+
+
+                }
+
+
+            }
+
+        });
+
+
+        var hasSelectorChange = function (target, mutations) {
+        };
+
+        for (var i = 0; i < allEventRecord.length; i++) {
+
+            var selector = uitest.inner.elToSelector(allEventRecord[i].target);
+            var keyCode = '';
+            if (/^key/.test(allEventRecord[i].type)) {
+                keyCode = ',{keyCode:' + allEventRecord[i].keyCode + ',charCode:' + allEventRecord[i].charCode + '}';
+            }
+            testCase += '    simulate("' + selector + '","' + allEventRecord[i].type + '"' + keyCode + ');\n';
         }
-        inputRecords = [];
-        testCase += '    simulate(KISSY.DOM.get("' + selector + '"),"' + type + '");\n';
 
 
         testCase += '    waitsMatchers(function(){\n'
-        mutations.forEach(function (mutation) {
 
-            if (mutation.type == "attributes") {
-                var oldValue = mutation.oldValue;
-                var newValue = mutation.target.getAttribute(mutation.attributeName)
-                var selector = elToSelector(action.target)
+        for (var i = 0; i < verifys.length; i++) {
+            testCase += '        ' + verifys[i] + "\n"
+        }
 
-                if (!oldValue && newValue) {
-                    console.log("ADD ATTR", mutation.attributeName, oldValue, newValue);
-                    testCase += '      except(KISSY.DOM.get("' + selector + '")).toHaveAttr("' + mutation.attributeName + '","' + newValue + '");\n';
-
-                }
-                ;
-                if (oldValue && !newValue) {
-                    console.log("remove ATTR", mutation.attributeName, oldValue, newValue)
-                    testCase += '      except(KISSY.DOM.get("' + selector + '")).not.toHaveAttr("' + mutation.attributeName + '","' + oldValue + '");\n';
-
-                }
-                ;
-                if (oldValue && newValue) {
-                    console.log("change ATTR", mutation.attributeName, oldValue, newValue)
-                    testCase += '      except(KISSY.DOM.get("' + selector + '")).toHaveAttr("' + mutation.attributeName + '","' + newValue + '");\n';
-
-                }
-                ;
-            }
-            if (mutation.type == "childList") {
-                if (mutation.addedNodes.length>0) {
-                    for(var i = 0;i<mutation.addedNodes.length;i++){
-                        testCase += '      except(KISSY.DOM.get("' + selector + '")).toHaveAttr("' + mutation.attributeName + '","' + newValue + '");\n';
-                    }
-
-
-
-                }
-                else {
-                    var oldValue = mutation.oldValue;
-                    var newValue = mutation.target.getAttribute(mutation.attributeName)
-                    var selector = elToSelector(action.target)
-
-                    if (!oldValue && newValue) {
-                        console.log("ADD ATTR", mutation.attributeName, oldValue, newValue);
-                        testCase += '<span class="tab3"></span>except(KISSY.DOM.get("' + selector + '")).toHaveAttr("' + mutation.attributeName + '","' + newValue + '");\n</br>';
-
-                    }
-                    ;
-                    if (oldValue && !newValue) {
-                        console.log("remove ATTR", mutation.attributeName, oldValue, newValue)
-                        testCase += '<span class="tab3"></span>except(KISSY.DOM.get("' + selector + '")).not.toHaveAttr("' + mutation.attributeName + '","' + oldValue + '");\n</br>';
-
-                    }
-                    ;
-                    if (oldValue && newValue) {
-                        console.log("change ATTR", mutation.attributeName, oldValue, newValue)
-                        testCase += '<span class="tab3"></span>except(KISSY.DOM.get("' + selector + '")).toHaveAttr("' + mutation.attributeName + '","' + newValue + '");\n</br>';
-
-                    }
-                    ;
-                }
-
-            }
-        });
 
         testCase += '    })\n'
-//showMsg(123);
-        testCase += '  });\n});'
-        showMsg(testCase)
+
+        testCase += '  })\n})'
+
+        uitest.inner.outterCall("appendCaseCode", [testCase]);
 
     }
 

@@ -1,204 +1,299 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <meta charset="gbk">
-    <title>UI Tester </title>
+<meta charset="gbk">
+<title>UI Tester </title>
 
 
-    <link rel="stylesheet" type="text/css" href="../../lib/jasmine.css">
-    <script src="../../lib/kissy-aio.js"></script>
+<link rel="stylesheet" type="text/css" href="../../lib/jasmine.css">
+<script src="../../lib/kissy-aio.js"></script>
+<script type="text/javascript" src="./editol/editol.js"></script>
+<link rel="stylesheet" type="text/css" href="./editol/editol.css">
 
-    <script src="./postmsg.js"></script>
-    <style>
-        ul{
-            padding:0;
-            margin:0;
-        }
-        html{
-            height:100%;
-            overflow:hidden;;
-        }
-        body{
-            margin:0;
-            padding:0;
-            height:100%;
-            overflow:hidden;;
-            font-size:12px;
-            background-color:#EEE;
-        }
-        #page{
-            display:-webkit-box;
-            -webkit-box-orient:vertical;
-            display:-moz-box;
-            -moz-box-orient:vertical;
-            display:box;
-            box-orient:vertical;
-            height:100%;
-        }
-        #nav{
-            border-bottom:solid 1px #cccccc;
-            padding:5px;
-            overflow:hidden;;
-            list-style:none;
-        }
-        #nav ul{
-            margin:0;
-            padding:0;
-        }
-        #nav li{
-            list-style:none;
-            float:right;
-            height:20px;
-            line-height:20px;
-            margin-right:20px;
-        }
-        #content{
-            -webkit-box-flex:1;
-            -moz-box-flex:1;
-            box-flex:1;
-            display:-webkit-box;
-            -webkit-box-orient:horizontal;
-            display:-moz-box;
-            -moz-box-orient:horizontal;
-            display:box;
-            box-orient:horizontal;
-        }
+<script src="./postmsg.js"></script>
+<style>
+ul{
+    padding:0;
+    margin:0;
+}
+html{
+    height:100%;
+    overflow:hidden;;
+}
+body{
+    margin:0;
+    padding:0;
+    height:100%;
+    overflow:hidden;;
+    font-size:12px;
+    background-color:#EEE;
+}
+#page{
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    display:-moz-box;
+    -moz-box-orient:vertical;
+    display:box;
+    box-orient:vertical;
+    height:100%;
+}
+#nav{
+    border-bottom:solid 1px #cccccc;
+    padding:5px;
+    overflow:hidden;;
+    list-style:none;
+    box-shadow:0px 2px 2px #ccc;
+    position:relative;
+    z-index:100;
+}
+#nav ul{
+    margin:0;
+    padding:0;
+}
+#nav li{
+    list-style:none;
+    float:right;
+    height:20px;
+    line-height:20px;
+    margin-right:20px;
+}
+#content{
+    -webkit-box-flex:1;
+    -moz-box-flex:1;
+    box-flex:1;
+    display:-webkit-box;
+    -webkit-box-orient:horizontal;
+    display:-moz-box;
+    -moz-box-orient:horizontal;
+    display:box;
+    box-orient:horizontal;
+}
 
-        #content{
-            display:-webkit-box;
-            -webkit-box-orient:horizontal;
-            display:-moz-box;
-            -moz-box-orient:horizontal;
-            display:box;
-            box-orient:horizontal;
-        }
-        #content .sub{
-            width:50px;
-            border:solid 1px #ccc;
-            margin-right:2px;
-            width:0px;
-            overflow:hidden;;
-        }
-        #content .sub a{
-            display:block;;
-            width:30px;
-            height:30px;
-            text-indent:-500px;
-            border:solid 1px red;
-            margin:auto;
-            margin-top:10px;
-            margin-bottom:10px;
-        }
-        #content .main{
-            display:-webkit-box;
-            -webkit-box-orient:vertical;
-            display:-moz-box;
-            -moz-box-orient:vertical;
-            display:box;
-            box-orient:vertical;
-            -webkit-box-flex:1;
-            -moz-box-flex:1;
-            box-flex:1;
-            border:solid 1px #ccc;
-            font-size:12px;
-        }
-        #content .aside{
-            width:200px;
-            border:solid 1px #ccc;
-            margin-left:3px;
-        }
-        #content .main .page{
-            height:300px;
-            overflow:auto;
-        }
-        #content .main .page iframe{
-            border:none;
-        }
-        #content .main  .code{
-            border:solid 1px #ccc;
-            overflow:auto;
-            background:#fff;
-            -webkit-box-flex:1;
-            -moz-box-flex:1;
-            box-flex:1;
-        }
-        .configs{
-        }
-        .configs h3{
-            display:block;;
-            height:20px;
-            line-height:20px;
-            font-weight:bold;
-            background-color:#ccc;
-            padding-left:5px;
-            position:relative;
-            overflow:hidden;;
-            margin:0;
-            background-color:#F8F8F8;
-            background-image:-webkit-gradient(linear, left top, left bottom, from(#F8F8F8), to(#ECECEC));
-            background-image:-webkit-linear-gradient(top, #F8F8F8, #ECECEC);
-            border-top:1px solid #C6C6C6;
-            border-bottom:1px solid #C6C6C6;
-            font-size:12px;
+#content{
+    display:-webkit-box;
+    -webkit-box-orient:horizontal;
+    display:-moz-box;
+    -moz-box-orient:horizontal;
+    display:box;
+    box-orient:horizontal;
+}
+#content .sub{
+    width:50px;
+    border:solid 1px #ccc;
+    margin-right:2px;
+    width:0px;
+    overflow:hidden;;
+    display:none;;
+}
+#content .sub a{
+    display:block;;
+    width:30px;
+    height:30px;
+    text-indent:-500px;
+    border:solid 1px red;
+    margin:auto;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+#content .main{
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    display:-moz-box;
+    -moz-box-orient:vertical;
+    display:box;
+    box-orient:vertical;
+    -webkit-box-flex:1;
+    -moz-box-flex:1;
+    box-flex:1;
+    border:solid 1px #ccc;
+    font-size:12px;
+}
+#content .aside{
+    width:200px;
+    border:solid 1px #ccc;
+    margin-left:3px;
+}
+#content .main .page{
+    height:300px;
+    overflow:hidden;
+}
+#content .main .page iframe{
+    border:none;
+    height:100%;
+    width:100%;
+}
+#content .main  .code{
+
+    overflow:auto;
+    background:#fff;
+    -webkit-box-flex:1;
+    -moz-box-flex:1;
+    box-flex:1;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    display:-moz-box;
+    -moz-box-orient:vertical;
+    display:box;
+    box-orient:vertical;
+}
+.tabs{
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    display:-moz-box;
+    -moz-box-orient:vertical;
+    display:box;
+    box-orient:vertical;
+    -webkit-box-flex:1;
+    -moz-box-flex:1;
+    box-flex:1;
+}
+.tabs ul{
+    border-bottom:solid 1px #ccc;
+    background-color:#eeeeee;
+}
+.tabs ul li{
+    border:solid 1px #ccc;
+    padding:2px 5px;
+    display:inline-block;
+    border-bottom:none;
+    border-top:none;
+    margin-left:5px;
+    background-color:#F8F8F8;
+    background-image:-webkit-gradient(linear, left top, left bottom, from(#F8F8F8), to(#ECECEC));
+    background-image:-webkit-linear-gradient(top, #F8F8F8, #ECECEC);
+}
+.tabs ul li.ks-active{
+   position:relative;;
+
+    z-index:111;
+}
+.tabs ul li a{
+    color:#4a4a4a;
+    text-decoration:none;
+}
+.tabs ul li.ks-active a{
+color:red;
+}
+.tabs .ks-switchable-content{
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    display:-moz-box;
+    -moz-box-orient:vertical;
+    display:box;
+    box-orient:vertical;
+    -webkit-box-flex:1;
+    -moz-box-flex:1;
+    box-flex:1;
+}
+.tabs .test-case, .tabs #test-result{
+    -webkit-box-flex:1;
+    -moz-box-flex:1;
+    box-flex:1;
+}
+.tabs #test-result{
+    display:none;
+}
+
+#content .main  .code-tools{
+    height:16px;
+    border-bottom:dotted 1px #cccccc;
+    line-height:16px;
+    color:#000;
+    background-color:#F8F8F8;
+
+}
+#content .main  .code-tools a{
+    color:#4A4A4A;
+}
+.configs{
+}
+.configs .hide ul{
+    display:none;
+}
+.configs h3{
+    display:block;;
+    height:20px;
+    line-height:20px;
+    font-weight:bold;
+    background-color:#ccc;
+    padding-left:5px;
+    position:relative;
+    overflow:hidden;;
+    margin:0;
+    background-color:#F8F8F8;
+    background-image:-webkit-gradient(linear, left top, left bottom, from(#F8F8F8), to(#ECECEC));
+    background-image:-webkit-linear-gradient(top, #F8F8F8, #ECECEC);
+    border-top:1px solid #C6C6C6;
+    border-bottom:1px solid #C6C6C6;
+    font-size:12px;
+}
+.configs h3 a{
+    color:#666;
+}
+.configs h3 a.status{
+    position:absolute;
+    top:4px;
+    right:10px;;
+    text-indent:-500px;
+    display:block;
+    width:10px;
+    height:10px;
+    border-radius:5px;
+    background-color:#000;
+    cursor:pointer;
+}
+.configs h3 a.start{
+    background-color:#DD4B39;
+}
+.configs h3 a.stop{
+    background-color:#000;
+}
+.configs  ul{
+    margin-left:10px;
+}
+.configs   li{
+    list-style:none;
+}
+.tab1{
+    width:20px;
+    display:inline-block;
+}
+.tab2{
+    width:40px;
+    display:inline-block;
+}
+.tab3{
+    width:60px;
+    display:inline-block;
+}
+#page .text-editor{
+    font-size:12px;
+    top:0px;
+    border:none;
+}
+#page .text-editor .inner-container:focus{
+    outline:none;
+}
+.text-editor-lines{
+    background-color:#F8F8F8;
+
+}
+.ks-resizable-handler-b{
+    position:absolute;;
+    bottom:0;
+    left:0;
+
+    background-color:#EEE;
+    height:5px;
+    width:100%;
+    z-index:1000000;
+    cursor:n-resize;
+    border-top:solid 1px #cccccc;
+    border-bottom:solid 1px #ccc;
+}
 
 
-
-        }
-        .configs h3 a{
-            color:#666;
-        }
-        .configs h3 a.status{
-            position:absolute;
-            top:4px;
-            right:10px;;
-            text-indent:-500px;
-            display:block;
-            width:10px;
-            height:10px;
-            border-radius:5px;
-            background-color:#000;
-            cursor:pointer;
-        }
-        .configs h3 a.start{
-            background-color:#DD4B39;
-        }
-        .configs h3 a.stop{
-            background-color:#000;
-        }
-        .configs  ul{
-            margin-left:10px;
-        }
-        .configs   li{
-            list-style:none;
-        }
-        .tab1{
-            width:20px;
-            display:inline-block;
-        }
-        .tab2{
-            width:40px;
-            display:inline-block;
-        }
-        .tab3{
-            width:60px;
-            display:inline-block;
-        }
-        #page .text-editor{
-            font-size:12px;
-        }
-        .ks-resizable-handler-b{
-            position:absolute;;
-            bottom:0;
-            left:0;
-            opacity:0.5;
-            background:#eee;
-            height:5px;
-            width:100%;
-            z-index:1000000;
-            cursor: n-resize;
-        }
-
-    </style>
+</style>
 </head>
 <body>
 <!-- 测试用例生成器
@@ -214,7 +309,8 @@
 -->
 <div id="page">
     <div id="nav">
-       UITest
+        UITest
+        <span class="code-tools" ><a href="#" class="run-test">运行</a></span>
     </div>
     <div id="content">
         <div class="sub">
@@ -249,26 +345,36 @@
         <div class="main">
             <div class="page">
                 <div id="test-page">
-                    <iframe id="iframe-target" src="./testiframe.html" width="100%" height="500px"></iframe>
+                    <iframe id="iframe-target" src="./testiframe.html" width="100%"></iframe>
                 </div>
 
 
             </div>
-            <div class="code" style="position:relative;">
-                <div id="test-case">
+            <div class="code">
+                <div class="tabs">
+                    <ul class="ks-switchable-nav">
+                        <li><a href="#">测试用例</a></li>
+                        <li><a href="#">测试结果</a></li>
+                    </ul>
+                    <div class="ks-switchable-content">
+                        <div class="test-case" style="position:relative;">
+
+                            <div id="test-case"></div>
+
+                        </div>
+                        <div id="test-result"></div>
+                    </div>
+
 
                 </div>
+
+
             </div>
         </div>
         <div class="aside">
             <ul class="configs">
-                <li><h3 class="event"><a class="title">事件</a><a class="status start">记录</a></h3>
-                    <ul>
-                        <li><label><input type="checkbox"/>click</label><a href=""></a></li>
-                        <li><label><input type="checkbox"/>dbclick</label><a href=""></a></li>
-                    </ul>
-                </li>
-                <li><h3 class="postion"><a class="title">定位</a><a class="status">记录</a></h3>
+
+                <li><h3 class="position"><a class="title">定位</a><a class="status">记录</a></h3>
                     <ul>
 
                     </ul>
@@ -301,6 +407,7 @@
                     </ul>
                 </li>
 
+
                 <!--<li><a class="title" href="#">选择</a>
                     <ul>
                         <li><label><input type="checkbox"/>只当前元素</label><a href=""></a></li>
@@ -321,105 +428,13 @@
 
 <!-- 编辑器--->
 
-<script type="text/javascript" src="./editol/editol.js"></script>
-<link rel="stylesheet" type="text/css" href="./editol/editol.css">
-<script type="text/javascript">
 
-    var editor = document.getElementById("test-case");
-    var source = "";
-    var textModel = new WebInspector.TextEditorModel();
-
-
-    var textEditor = new WebInspector.TextViewer(textModel);
-    editor.appendChild(textEditor.element)
-    textEditor.readOnly = false;
-    textEditor.mimeType = "text/javascript";
-    textModel.setText(null, source);
-    console.log(textModel)
-
-
-</script>
+<script src="./core.js" charset="utf-8"></script>
 <script>
-    var S = KISSY, D = KISSY.DOM;
-    var oldCaseType , caseType;
-    E = KISSY.Event;
-    var showMsg = function (msg) {
-        var p = D.create("<p></p>");
-        for (var i = 0; i < arguments.length; i++) {
-            var s = D.create("<span>" + arguments[i] + "</span>");
-            p.appendChild(s);
-        }
-        textModel.appendText(msg)
-        var lines = D.query(".webkit-line-content");
-        var lastLines = lines[lines.length - 1];
-
-        lastLines.scrollIntoView()
-    }
-
-    E.on(".status", "click", function (e) {
-        var target = e.target;
-
-        if (D.hasClass(target, "start")) {
-
-            var data = {
-                set:{
-                    caseType:"null"
-                }
-            }
-            console.log(data)
-            postmsg.send({
-                target:D.get("#iframe-target").contentWindow,
-                data  :data
-            })
-            D.removeClass(target, "start");
-            return;
-        }
-        else {
-            var all = D.query(".status");
-            for (var i = 0; i < all.length; i++) {
-                D.removeClass(all[i], "start");
-            }
-
-            D.addClass(target, 'start');
-            caseTest = D.attr(target.parentNode, "class");
-            console.log(caseTest)
-            postmsg.send({
-                target:D.get("#iframe-target").contentWindow,
-                data  :{set:{
-                    caseType:caseTest
-                }}
-            })
-
-        }
-
-
-    })
-
-
-    postmsg.bind(function (data) {
-        showMsg(data.caseCode);
-    })
+    uitest.outter.init();
 
 </script>
-<style>
 
-
-
-</style>
-<script>
-    KISSY.use("node, button, resizable", function (S, Node, Button, Resizable) {
-        var r = new Resizable({
-            node    :".page",
-            // 指定可拖动的位置
-            handlers:["b"]
-
-
-        });
-
-
-    });
-
-</script>
 
 </body>
 </html>

@@ -3,6 +3,7 @@
 <head>
     <meta charset="gbk">
     <title>UI Tester </title>
+    <link rel="stylesheet" type="text/css" href="../../lib/jasmine.css">
 
     <script src="./postmsg.js"></script>
     <script src="../../lib/kissy-aio.js"></script>
@@ -11,143 +12,38 @@
     <script src="../../lib/event-simulate.js"></script>
     <script src="../../lib/matcher.js"></script>
     <style>
-        ul{
-            padding:0;
-            margin:0;
-        }
-        html{
-            height:100%;
-            overflow:hidden;;
-        }
+
         body{
-            margin:0;
-            padding:0;
-            height:100%;
-            overflow:hidden;;
-            font-size:12px;
+
             background-color:#fff;
-        }
-        #page{
-            display:-webkit-box;
-            -webkit-box-orient:vertical;
-            display:-moz-box;
-            -moz-box-orient:vertical;
-            display:box;
-            box-orient:vertical;
-            height:100%;
-        }
-        #nav{
-            border-bottom:solid 1px #cccccc;
-            padding:5px;
-            overflow:hidden;;
-            list-style:none;
-            background-color:#ccffcc;
-        }
-        #nav ul{
-            margin:0;
-            padding:0;
-        }
-        #nav li{
-            list-style:none;
-            float:left;
-            height:20px;
-            line-height:20px;
-            margin-right:20px;
-        }
-        #content{
-            -webkit-box-flex:1;
-            -moz-box-flex:1;
-            box-flex:1;
-            display:-webkit-box;
-            -webkit-box-orient:horizontal;
-            display:-moz-box;
-            -moz-box-orient:horizontal;
-            display:box;
-            box-orient:horizontal;
+            overflow:auto;
         }
 
-        #content{
-            display:-webkit-box;
-            -webkit-box-orient:horizontal;
-            display:-moz-box;
-            -moz-box-orient:horizontal;
-            display:box;
-            box-orient:horizontal;
-        }
-        #content .sub{
-            width:50px;
-            border:solid 1px #ccc;
-            margin-right:2px;
-        }
-        #content .sub a{
-            display:block;;
-            width:30px;
-            height:30px;
-            text-indent:-500px;
-            border:solid 1px red;
-            margin:auto;
-            margin-top:10px;
-            margin-bottom:10px;
-        }
-        #content .main{
-            display:-webkit-box;
-            -webkit-box-orient:vertical;
-            display:-moz-box;
-            -moz-box-orient:vertical;
-            display:box;
-            box-orient:vertical;
-            -webkit-box-flex:1;
-            -moz-box-flex:1;
-            box-flex:1;
-            border:solid 1px #ccc;
-            font-size:12px;
-        }
-        #content .aside{
-            width:200px;
-            border:solid 1px #ccc;
-            margin-left:3px;
-        }
-        #content .main .page{
-            -webkit-box-flex:1;
-            -moz-box-flex:1;
-            box-flex:1;
-            overflow:auto;
-        }
-        #content .main  .code{
-            border:solid 1px #ccc;
-            height:300px;
-            overflow:auto;
-        }
-        .configs{
-        }
-        .configs .title{
-            display:block;;
-            height:20px;
-            line-height:20px;
-            font-weight:bold;
-            background-color:#ccc;
-            padding-left:5px;
-        }
-        .configs  ul{
-            margin-left:10px;
-        }
-        .configs   li{
-            list-style:none;
-        }
-        .tab1{
-            width:20px;
-            display:inline-block;
-        }
-        .tab2{
-            width:40px;
-            display:inline-block;
-        }
-        .tab3{
-            width:60px;
-            display:inline-block;
+
+        .name{
+            COLOR:BLUE;
         }
 
     </style>
+    <script>
+        var realAdd = window.Node.prototype.addEventListener;
+
+
+        window.Node.prototype.addEventListener = function () {
+
+
+            if (arguments[3]) {
+                realAdd.apply(this, arguments)
+            }
+            else {
+                this._bindEventType = this._bindEventType || {};
+                this._bindEventType[arguments[0]] = 1;
+                realAdd.apply(this, arguments)
+            }
+
+        }
+
+    </script>
 </head>
 <body>
 
@@ -155,15 +51,18 @@
 <div id="test-page">
 
     <ul>
-        <li><a href="#" onclick="addAttr(this)">addAttr</a></li>
-        <li><a href="#" onclick="removeAttr(this)" class="red">removeAttr</a></li>
+        <li><a  href="#" onclick="addAttr(this)">addAttr</a></li>
+        <li><a href="#" onclick="removeAttr(this)" class="13 red">removeAttr</a></li>
         <li><a href="#" onclick="changeAttr(this)" class="blue">changeAttr</a></li>
         <li><a href="#" onclick="changeStyle(this)" class="blue">changeStyle</a></li>
         <li><a href="#" onclick="changeInnerHtml(this)" class="blue">changeInnerHtml</a></li>
         <li><a href="#" onclick="appendNewChild(this)" class="blue">appendNewChild</a></li>
         <li><a href="#" onclick="removeOldChild(this)" class="blue">remove<span
                 id="remove">OldChild</span></a>
-        <li><a href="#" onmouseover="setBgColor(this)" class="blue">red</a></li>
+        <li><a href="#" id="over" onmouseover="setBgColor(this)" class="blue">red</a></li>
+        <li><a>red</a></li>
+        <li><a id="click">clic1k</a></li>
+        <li><a>clic2k</a></li>
 
     </ul>
     <ul>
@@ -180,7 +79,7 @@
         var S = KISSY, D = KISSY.DOM;
         E = KISSY.Event;
         var addAttr = function (el) {
-            D.addClass(el, "red")
+            D.addClass(el, "name")
         }
         var removeAttr = function (el) {
             D.removeClass(el, "red")
@@ -205,14 +104,28 @@
             D.remove(t);
         }
         var setBgColor = function (el) {
-            el.style.backgroundColor = "red";
+            window.setTimeout(function () {
+                el.style.backgroundColor = "red";
+            }, 1000)
+
         }
+        
+        D.get("#click").addEventListener("click", function(){
+            
+        })
+
 
     </script>
 
 </div>
+
 <script src="./core.js" charset="utf-8"></script>
+<script>
+    uitest.inner.init();
+</script>
 <script src="./events.js" charset="utf-8"></script>
 <script src="./attrs.js" charset="utf-8"></script>
+<script src="./position.js" charset="utf-8"></script>
+
 </body>
 </html>

@@ -42,7 +42,7 @@ KISSY.add('UITester', function (S){
 
         // 初始化测试模块
         init: function (){
-            document.domain = 'taobao.com';
+            //document.domain = 'taobao.com';
 
             var host = this;
 
@@ -52,16 +52,16 @@ KISSY.add('UITester', function (S){
         },
 
         // 初始化 postMessage 功能
-        _initPostMessage: function (){
-        },
+        //_initPostMessage: function (){
+        //},
 
         // 向任务队列添加任务
-        _addToTaskQueue: function (){
-        },
+        //_addToTaskQueue: function (){
+        //},
 
          // 从任务队列中移除任务
-        _removeFromTaskQueue: function (){
-        },
+        //_removeFromTaskQueue: function (){
+        //},
 
         // 为整个测试框架绑定事件
         bindEvent: function (){
@@ -87,7 +87,24 @@ KISSY.add('UITester', function (S){
                     host._startTask(ev, target, parentNode);
                 }
 
+                if (DOM.hasClass(target, 'J_AddTask')){
+                    host._addTask(ev);
+                }
+
             });
+        },
+
+        _addTask: function (ev){
+            ev.preventDefault();
+
+            var targetNode = DOM.get('.J_Task')
+
+            // 克隆整个 DOM 结构，包括子节点
+            var neoClonedTask = DOM.clone(targetNode, true);
+            var formNode = DOM.get('FORM', neoClonedTask);
+            formNode.reset();
+
+            DOM.insertBefore(neoClonedTask, targetNode);
         },
 
         // 启动队列中的任务
@@ -97,32 +114,49 @@ KISSY.add('UITester', function (S){
             var host = this;
 
             var testURI, 
-                caseURIs = [],
-                testFrame;
+                //caseURIs = [],
+                taskForm,
+                testFrame
+                taskId;
 
-            testURI = DOM.get('.J_TestURI', parentNode);
-            testFrame = DOM.get('.J_TestFrame', parentNode);
+            var tag = '__TEST__';
+            var taskId = tag + S.guid();
 
-            S.each(DOM.query('.J_CaseURI', parentNode), function (el){
-                if (S.trim(el.value) !== ''){
-                    caseURIs.push(el.value);
-                }
-            });
+            testFrameContainer = DOM.get('.J_TestFrame', parentNode);
+            testFrameContainer.innerHTML = '';
 
-            var cfg = {
-                testURI: testURI.value,
-                caseURIs: caseURIs,
-                testFrame: testFrame
-            };
+            testFrame = DOM.create('<iframe width="800" height="600">');
+            DOM.attr(testFrame, 'name', taskId);
+            DOM.append(testFrame, testFrameContainer);
+
+            testURI = DOM.get('.J_TestURI', parentNode).value;
+            testURI += (testURI.indexOf('?') > -1 ? '&' : '?') + tag;
+
+            taskForm = DOM.get('.J_TaskConfig', parentNode);
+            DOM.attr(taskForm, 'action', testURI);
+            DOM.attr(taskForm, 'target', taskId);
+ 
+            taskForm.submit();
+            //S.each(DOM.query('.J_CaseURI', parentNode), function (el){
+            //    if (S.trim(el.value) !== ''){
+            //        caseURIs.push(el.value);
+            //    }
+            //});
+            //
+            //var cfg = {
+            //    testURI: testURI.value,
+            //    caseURIs: caseURIs,
+            //    testFrame: testFrame
+            //};
 
             //host._setConfig(cfg);
 
-            host.injectResource(testFrame, cfg);
+            //host.injectResource(testFrame, cfg);
             
         },
 
-        _setConfig: function (){
-        },
+        //_setConfig: function (){
+        //},
 
         _addCaseInput: function (ev, target){
             ev.preventDefault();
@@ -148,16 +182,8 @@ KISSY.add('UITester', function (S){
                 S.each(scriptsInjectQueue, function (value){
                     scriptNode = document.createElement('script');
                     scriptNode.src = value;
-                    //scriptNode = DOM.create('<script src="' + value + '"></script>')
                     frame.contentWindow.document.body.appendChild(scriptNode);
                 });
-
-
-                //var neoNode = frame.contentWindow.document.createElement('script');
-                //var neoNode = document.createElement('script');
-                //frame.contentWindow.document.body.appendChild(neoNode);
-                //neoNode.src = 'http://uitester.taobao.com/tool/test-inject.js'
-
 
             });
 
