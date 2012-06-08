@@ -22,15 +22,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="events.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/record/events.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="141" column="12" selection-start="3288" selection-end="4958" vertical-scroll-proportion="-2.4">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="record.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/record/record.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -49,29 +40,49 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="position.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="position.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/record/position.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="51" selection-start="442" selection-end="442" vertical-scroll-proportion="0.4204204">
+            <state line="2" column="16" selection-start="62" selection-end="62" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="like.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://D:/workspace/trunk/p/snsdk/src/widget/like.js">
+      <file leaf-file-name="innerhtml.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/record/innerhtml.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="263" column="22" selection-start="6726" selection-end="6736" vertical-scroll-proportion="-11.2">
+            <state line="13" column="89" selection-start="527" selection-end="527" vertical-scroll-proportion="0.3903904">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="share.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://D:/workspace/trunk/p/snsdk/src/widget/share.js">
+      <file leaf-file-name="subtree.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/record/subtree.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="629" column="36" selection-start="25071" selection-end="25071" vertical-scroll-proportion="-0.8">
+            <state line="11" column="80" selection-start="465" selection-end="465" vertical-scroll-proportion="0.0">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../test/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="68" column="45" selection-start="1530" selection-end="1530" vertical-scroll-proportion="-40.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="matcher.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../lib/matcher.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="318" column="54" selection-start="10302" selection-end="10308" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -97,19 +108,8 @@
       <file leaf-file-name="tags.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/record/tags.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="47" selection-start="316" selection-end="316" vertical-scroll-proportion="0.0">
+            <state line="7" column="57" selection-start="0" selection-end="786" vertical-scroll-proportion="0.0">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="matcher.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../lib/matcher.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="280" column="15" selection-start="9015" selection-end="9022" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -129,8 +129,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="D:/workspace/trunk/p/snsdk/src/core/xd.js" />
-        <option value="D:/workspace/trunk/p/snsdk/src/core/ui.js" />
         <option value="$PROJECT_DIR$/../../editorOnline/demo/editor.html" />
         <option value="$PROJECT_DIR$/../lib/event-simulate.js" />
         <option value="D:/workspace/trunk/p/snsdk/src/widget/like.js" />
@@ -145,6 +143,8 @@
         <option value="$PROJECT_DIR$/record/core.js" />
         <option value="$PROJECT_DIR$/record/tags.js" />
         <option value="$PROJECT_DIR$/record/position.js" />
+        <option value="$PROJECT_DIR$/record/subtree.js" />
+        <option value="$PROJECT_DIR$/record/innerhtml.js" />
       </list>
     </option>
   </component>
@@ -307,27 +307,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test/child.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../lib/event-simulate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="496" column="13" selection-start="19901" selection-end="19909" vertical-scroll-proportion="23.16">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/workspace/trunk/p/snsdk/src/timestamp.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="4" selection-start="27" selection-end="27" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/workspace/trunk/p/snsdk/src/widget/sharebtn.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="42" column="52" selection-start="1398" selection-end="1398" vertical-scroll-proportion="0.0">
@@ -373,15 +352,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../lib/matcher.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="280" column="15" selection-start="9015" selection-end="9022" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/record/testiframe.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="181" column="9" selection-start="4646" selection-end="4646" vertical-scroll-proportion="-9.230769">
@@ -410,16 +380,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/record/tags.js">
+    <entry file="file://$PROJECT_DIR$/record/position.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="47" selection-start="316" selection-end="316" vertical-scroll-proportion="0.0">
+        <state line="2" column="16" selection-start="62" selection-end="62" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/record/position.js">
+    <entry file="file://$PROJECT_DIR$/record/tags.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="51" selection-start="442" selection-end="442" vertical-scroll-proportion="0.4204204">
+        <state line="7" column="57" selection-start="0" selection-end="786" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/record/subtree.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="80" selection-start="465" selection-end="465" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../lib/matcher.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="318" column="54" selection-start="10302" selection-end="10308" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../test/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="68" column="45" selection-start="1530" selection-end="1530" vertical-scroll-proportion="-40.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/record/innerhtml.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="89" selection-start="527" selection-end="527" vertical-scroll-proportion="0.3903904">
           <folding />
         </state>
       </provider>
