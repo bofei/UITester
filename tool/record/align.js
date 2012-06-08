@@ -12,7 +12,7 @@
 
 
         testCase += '  it("' + selector + ' has position"' + ', function(){\n';
-        testCase += '    expect("' + selector + '" ).atPosition(' + offset.left + ',' + offset.top + ');\n';
+        testCase += '    expect(' + selector + ').atPosition(' + offset.left + ',' + offset.top + ');\n';
 
         //showMsg(123);
         testCase += '  })\n})\n'

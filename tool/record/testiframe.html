@@ -5,20 +5,21 @@
     <title>UI Tester </title>
     <link rel="stylesheet" type="text/css" href="../../lib/jasmine.css">
 
+
+
     <script src="./postmsg.js"></script>
     <script src="../../lib/kissy-aio.js"></script>
     <script src="../../lib/jasmine.js"></script>
     <script src="../../lib/jasmine-html.js"></script>
     <script src="../../lib/event-simulate.js"></script>
     <script src="../../lib/matcher.js"></script>
+    <script src="http://a.tbcdn.cn/p/snsdk/core.js"></script>
     <style>
 
         body{
-
             background-color:#fff;
             overflow:auto;
         }
-
 
         .name{
             COLOR:BLUE;
@@ -51,7 +52,7 @@
 <div id="test-page">
 
     <ul>
-        <li><a  href="#" onclick="addAttr(this)">addAttr</a></li>
+        <li><a href="#" onclick="addAttr(this)">addAttr</a></li>
         <li><a href="#" onclick="removeAttr(this)" class="13 red">removeAttr</a></li>
         <li><a href="#" onclick="changeAttr(this)" class="blue">changeAttr</a></li>
         <li><a href="#" onclick="changeStyle(this)" class="blue">changeStyle</a></li>
@@ -64,6 +65,7 @@
         <li><a id="click">clic1k</a></li>
         <li><a>clic2k</a></li>
 
+
     </ul>
     <ul>
         <li><input type="text"/></li>
@@ -75,6 +77,7 @@
             <option>123</option>
         </select></li>
     </ul>
+    <div class="sns-widget" data-sharebtn="{}"></div>
     <script>
         var S = KISSY, D = KISSY.DOM;
         E = KISSY.Event;
@@ -109,9 +112,9 @@
             }, 1000)
 
         }
-        
-        D.get("#click").addEventListener("click", function(){
-            
+
+        D.get("#click").addEventListener("click", function () {
+
         })
 
 
@@ -119,13 +122,78 @@
 
 </div>
 
+<!--
+<script>
+    window.setTimeout(function () {
+
+        describe("交互动作测试用例", function () {
+            it("12", function () {
+                console.log("gogo")
+                var exp1 = expect("#test-page div").willModifyAttr("class", "sns-widget sns-sharebtn sns-sharebtn-default");
+
+                var exp21 = expect(".sns-share-widget").willModifyAttr("class", "sns-share-widget ks-overlay ks-ext-position");
+
+
+
+
+                simulate("#test-page div", "click");
+                waitsMatchers(function () {
+                    exp1.verify();
+
+                    exp21.verify();
+
+
+
+
+                })
+            })
+        });
+
+
+    }, 2000)
+
+
+</script>
+<script>
+    window.setTimeout(function () {
+
+
+        var jasmineEnv = jasmine.getEnv();
+        jasmineEnv.updateInterval = 1000;
+
+        var htmlReporter = new jasmine.HtmlReporter();
+
+        jasmineEnv.addReporter(htmlReporter);
+
+        jasmineEnv.specFilter = function (spec) {
+            return htmlReporter.specFilter(spec);
+        };
+
+
+
+        function execJasmine() {
+            jasmineEnv.execute();
+        }
+        execJasmine()
+
+
+    }, 3000)
+
+</script>
+-->
+
 <script src="./core.js" charset="utf-8"></script>
 <script>
     uitest.inner.init();
 </script>
 <script src="./events.js" charset="utf-8"></script>
 <script src="./attrs.js" charset="utf-8"></script>
+<script src="./tags.js" charset="utf-8"></script>
 <script src="./position.js" charset="utf-8"></script>
+<script src="./center.js" charset="utf-8"></script>
+<script src="./style.js" charset="utf-8"></script>
+<script src="./innerhtml.js" charset="utf-8"></script>
+<script src="./subtree.js" charset="utf-8"></script>
 
 </body>
 </html>

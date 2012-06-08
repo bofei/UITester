@@ -112,6 +112,15 @@ body{
     width:200px;
     border:solid 1px #ccc;
     margin-left:3px;
+    overflow:auto;
+
+}
+#content .aside .cfg-item{
+
+}
+#content .aside .attr{
+   height:20px;
+
 }
 #content .main .page{
     height:300px;
@@ -123,7 +132,6 @@ body{
     width:100%;
 }
 #content .main  .code{
-
     overflow:auto;
     background:#fff;
     -webkit-box-flex:1;
@@ -135,6 +143,48 @@ body{
     -moz-box-orient:vertical;
     display:box;
     box-orient:vertical;
+    position:relative;
+}
+.code .code-cmd{
+    position:absolute;;
+    top:3px;
+    right:20px;
+}
+.code .code-cmd li{
+    display:inline-block;;
+}
+.code .code-cmd li a{
+    display:inline-block;
+    height:20px;
+    padding:1px 5px;
+    color:#333;
+    font-family:Helvetica, arial, freesans, clean, sans-serif;
+    font-size:12px;
+    line-height:16px;
+    text-shadow:0 1px 0 white;
+    white-space:nowrap;
+    border:1px solid #D4D4D4;
+    border-bottom-color:#BCBCBC;
+    border-radius:3px;
+    background:#FAFAFA;
+    background:-webkit-linear-gradient(#FAFAFA, #EAEAEA);
+    cursor:pointer;
+    -webkit-touch-callout:none;
+    -webkit-user-select:none;
+    user-select:none;
+}
+.code .code-cmd li a.create-test{
+
+    background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFDE82), to(#FF9442));;
+
+
+}
+.code .code-cmd li.red{
+   color:red;
+}
+
+.code .code-cmd li a{
+    text-decoration:none;
 }
 .tabs{
     display:-webkit-box;
@@ -152,19 +202,34 @@ body{
     background-color:#eeeeee;
 }
 .tabs ul li{
+    margin:2px 0px 2px 10px;;
     border:solid 1px #ccc;
     padding:2px 5px;
     display:inline-block;
-    border-bottom:none;
-    border-top:none;
-    margin-left:5px;
-    background-color:#F8F8F8;
-    background-image:-webkit-gradient(linear, left top, left bottom, from(#F8F8F8), to(#ECECEC));
-    background-image:-webkit-linear-gradient(top, #F8F8F8, #ECECEC);
+    position:relative;
+    overflow:hidden;;
+    padding:0 10px 0 10px;
+    color:#333;
+    font-family:Helvetica, arial, freesans, clean, sans-serif;
+    font-size:12px;
+    font-weight:bold;
+    line-height:20px;
+    text-shadow:0 1px 0 white;
+    font-weight:normal;
+    white-space:nowrap;
+    border:1px solid #D4D4D4;
+    border-bottom-color:#BCBCBC;
+    border-radius:3px;
+    background:#FAFAFA;
+    background:-webkit-linear-gradient(#FAFAFA, #EAEAEA);
+    cursor:pointer;
+    -webkit-touch-callout:none;
+    -webkit-user-select:none;
+    user-select:none;
 }
 .tabs ul li.ks-active{
-   position:relative;;
-
+    position:relative;;
+    outline:none;
     z-index:111;
 }
 .tabs ul li a{
@@ -172,7 +237,7 @@ body{
     text-decoration:none;
 }
 .tabs ul li.ks-active a{
-color:red;
+    color:red;
 }
 .tabs .ks-switchable-content{
     display:-webkit-box;
@@ -194,14 +259,6 @@ color:red;
     display:none;
 }
 
-#content .main  .code-tools{
-    height:16px;
-    border-bottom:dotted 1px #cccccc;
-    line-height:16px;
-    color:#000;
-    background-color:#F8F8F8;
-
-}
 #content .main  .code-tools a{
     color:#4A4A4A;
 }
@@ -211,35 +268,47 @@ color:red;
     display:none;
 }
 .configs h3{
-    display:block;;
-    height:20px;
-    line-height:20px;
-    font-weight:bold;
-    background-color:#ccc;
-    padding-left:5px;
+    display:block;
+    margin:0;
     position:relative;
     overflow:hidden;;
-    margin:0;
-    background-color:#F8F8F8;
-    background-image:-webkit-gradient(linear, left top, left bottom, from(#F8F8F8), to(#ECECEC));
-    background-image:-webkit-linear-gradient(top, #F8F8F8, #ECECEC);
-    border-top:1px solid #C6C6C6;
-    border-bottom:1px solid #C6C6C6;
-    font-size:12px;
+    padding:0 10px 0 10px;
+    color:#333;
+    font-family:Helvetica, arial, freesans, clean, sans-serif;
+    font-size:13px;
+    font-weight:bold;
+    line-height:24px;
+    text-shadow:0 1px 0 white;
+    white-space:nowrap;
+    border:1px solid #D4D4D4;
+    border-bottom-color:#BCBCBC;
+    border-radius:3px;
+    background:#FAFAFA;
+    background:-webkit-linear-gradient(#FAFAFA, #EAEAEA);
+    cursor:pointer;
+    -webkit-touch-callout:none;
+    -webkit-user-select:none;
+    user-select:none;
 }
-.configs h3 a{
-    color:#666;
-}
+
+
 .configs h3 a.status{
+
+
     position:absolute;
-    top:4px;
+    top:9px;
     right:10px;;
     text-indent:-500px;
     display:block;
-    width:10px;
-    height:10px;
-    border-radius:5px;
-    background-color:#000;
+    width:0px;
+    height:0px;
+    line-height:0;
+    border-width: 5px 5px 0 5px;
+    border-style: solid dashed dashed dashed;
+    border-color:#666 transparent transparent transparent;
+
+    -webkit-transition: -webkit-transform .2s ease-in;
+
     cursor:pointer;
 }
 .configs h3 a.start{
@@ -254,6 +323,11 @@ color:red;
 .configs   li{
     list-style:none;
 }
+.configs h3.active{
+background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFDE82), to(#FF9442))
+}
+
+
 .tab1{
     width:20px;
     display:inline-block;
@@ -276,13 +350,11 @@ color:red;
 }
 .text-editor-lines{
     background-color:#F8F8F8;
-
 }
 .ks-resizable-handler-b{
     position:absolute;;
     bottom:0;
     left:0;
-
     background-color:#EEE;
     height:5px;
     width:100%;
@@ -309,37 +381,12 @@ color:red;
 -->
 <div id="page">
     <div id="nav">
-        UITest
-        <span class="code-tools" ><a href="#" class="run-test">运行</a></span>
+        <span class="url    "><span>URL:</span><input id="url" type="text" value="./testiframe.html"/><a id="reload" style="vertical-align:middle;" href="#"><img width="16" src="./img/reload.png"></a></span>
+
     </div>
     <div id="content">
         <div class="sub">
-            <ul>
-                <li>
-                    <button class="type" data-value='event' href="#" title="交互事件用例">事件</button>
-                </li>
 
-                <li>
-                    <button class="type" data-value='attr' href="#" title="样式">属性</button>
-                </li>
-                <li>
-                    <button class="type" data-value='style' href="#" title="样式">样式</button>
-                </li>
-                <li>
-                    <button class="type" data-value='align' href="#" title="样式">对齐</button>
-                </li>
-                <li>
-                    <button class="type" data-value='html' href="#" title="样式">内容</button>
-                </li>
-                <li>
-                    <button class="type" data-value='subtree' href="#" title="样式">结构</button>
-                </li>
-                <li>
-                    <button class="type" data-value='position' href="#" title="定位用例">定位</button>
-                </li>
-
-
-            </ul>
 
         </div>
         <div class="main">
@@ -369,53 +416,24 @@ color:red;
                 </div>
 
 
+                <div class="code-cmd">
+                    <ul>
+                        <li>
+                           <span class="has-test-case" style="display:none;"> <a class="create-test" >动作完成</a><a class="cancel-test" style="">取消</a></span>
+                        </li>
+
+                        <li>
+                            <a href="#" class="run-test">测试</a>
+                        </li>
+                    </ul>
+                </div>
+
+
             </div>
         </div>
         <div class="aside">
             <ul class="configs">
 
-                <li><h3 class="position"><a class="title">定位</a><a class="status">记录</a></h3>
-                    <ul>
-
-                    </ul>
-                </li>
-                <li><h3 class="align"><a class="title">对齐</a><a class="status">记录</a></h3>
-                    <ul>
-
-                    </ul>
-                </li>
-
-
-                <li><h3 class="innerHTML"><a class="title">内容</a><a class="status">记录</a></h3>
-                    <ul>
-
-                    </ul>
-                </li>
-                <li><h3 class="subtree"><a class="title">结构</a><a class="status">记录</a></h3>
-                    <ul>
-
-                    </ul>
-                </li>
-                <li><h3 class="css"><a class="title">样式</a><a class="status">记录</a></h3>
-                    <ul>
-
-                    </ul>
-                </li>
-                <li><h3 class="attr"><a class="title">属性</a><a class="status">记录</a></h3>
-                    <ul>
-
-                    </ul>
-                </li>
-
-
-                <!--<li><a class="title" href="#">选择</a>
-                    <ul>
-                        <li><label><input type="checkbox"/>只当前元素</label><a href=""></a></li>
-                        <li><label><input type="checkbox"/>包含子元素</label><a href=""></a></li>
-                    </ul>
-                </li>
-                -->
-                <li></li>
 
             </ul>
 
