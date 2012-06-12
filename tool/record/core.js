@@ -376,7 +376,7 @@
             var iframe = D.get("#iframe-target");
 
 
-            S.io.getJSON("http://uitest.taobao.net/UITester/tool/query.php", {task_id:location.hash}, function (result) {
+            S.io.getJSON("http://uitest.taobao.net/UITester/tool/query.php", {task_id:location.hash.substring(1)}, function (result) {
                 idEl.value = result.id;
                 nameEl.value = result.task_name;
                 task_target_url.value = buildUrl(result.task_target_url, "inject-type=record&__TEST__");
