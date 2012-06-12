@@ -25,7 +25,7 @@
       <file leaf-file-name="record.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/record/record.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="436" column="0" selection-start="8918" selection-end="8918" vertical-scroll-proportion="-14.509804">
+            <state line="402" column="93" selection-start="8718" selection-end="8729" vertical-scroll-proportion="-15.923077">
               <folding />
             </state>
           </provider>
@@ -34,43 +34,7 @@
       <file leaf-file-name="testiframe.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/record/testiframe.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="181" column="9" selection-start="4646" selection-end="4646" vertical-scroll-proportion="-9.230769">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="position.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/record/position.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="16" selection-start="62" selection-end="62" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="innerhtml.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/record/innerhtml.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="89" selection-start="527" selection-end="527" vertical-scroll-proportion="0.3903904">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="subtree.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/record/subtree.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="80" selection-start="465" selection-end="465" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../test/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="68" column="45" selection-start="1530" selection-end="1530" vertical-scroll-proportion="-40.0">
+            <state line="26" column="56" selection-start="1030" selection-end="1030" vertical-scroll-proportion="63.846153">
               <folding />
             </state>
           </provider>
@@ -79,10 +43,8 @@
       <file leaf-file-name="matcher.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../lib/matcher.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="318" column="54" selection-start="10302" selection-end="10308" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+            <state line="298" column="18" selection-start="9600" selection-end="9610" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -90,25 +52,61 @@
       <file leaf-file-name="attrs.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/record/attrs.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="83" column="0" selection-start="2269" selection-end="2269" vertical-scroll-proportion="-13.6">
+            <state line="83" column="0" selection-start="2527" selection-end="2527" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="core.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="position.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/record/position.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="0" selection-start="182" selection-end="182" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="core.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/record/core.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="850" column="15" selection-start="27589" selection-end="27589" vertical-scroll-proportion="-60.36">
+            <state line="401" column="35" selection-start="13502" selection-end="13502" vertical-scroll-proportion="0.36753446">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tags.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/record/tags.js">
+      <file leaf-file-name="sns.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://D:/workspace/trunk/p/snsdk/src/core/sns.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="57" selection-start="0" selection-end="786" vertical-scroll-proportion="0.0">
+            <state line="141" column="9" selection-start="3896" selection-end="4225" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="events.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/record/events.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="340" column="0" selection-start="10998" selection-end="10998" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jasmine-html.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../lib/jasmine-html.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="434" column="4" selection-start="13410" selection-end="15205" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jasmine.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../lib/jasmine.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2189" column="66" selection-start="62392" selection-end="62447" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -129,22 +127,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/../../editorOnline/demo/editor.html" />
-        <option value="$PROJECT_DIR$/../lib/event-simulate.js" />
         <option value="D:/workspace/trunk/p/snsdk/src/widget/like.js" />
-        <option value="$PROJECT_DIR$/../lib/matcher.js" />
         <option value="D:/workspace/trunk/p/snsdk/src/timestamp.js" />
         <option value="D:/workspace/trunk/p/snsdk/src/widget/share.js" />
-        <option value="$PROJECT_DIR$/record/events.js" />
         <option value="D:/workspace/trunk/p/snsdk/core.js" />
-        <option value="$PROJECT_DIR$/record/attrs.js" />
-        <option value="$PROJECT_DIR$/record/record.html" />
+        <option value="$PROJECT_DIR$/record/subtree.js" />
+        <option value="$PROJECT_DIR$/../lib/matcher.js" />
+        <option value="$PROJECT_DIR$/record/innerhtml.js" />
+        <option value="$PROJECT_DIR$/../lib/jasmine.js" />
+        <option value="$PROJECT_DIR$/../lib/jasmine-html.js" />
         <option value="$PROJECT_DIR$/record/testiframe.html" />
-        <option value="$PROJECT_DIR$/record/core.js" />
+        <option value="$PROJECT_DIR$/record/events.js" />
+        <option value="$PROJECT_DIR$/record/attrs.js" />
         <option value="$PROJECT_DIR$/record/tags.js" />
         <option value="$PROJECT_DIR$/record/position.js" />
-        <option value="$PROJECT_DIR$/record/subtree.js" />
-        <option value="$PROJECT_DIR$/record/innerhtml.js" />
+        <option value="$PROJECT_DIR$/record/record.html" />
+        <option value="$PROJECT_DIR$/record/core.js" />
       </list>
     </option>
   </component>
@@ -297,129 +295,97 @@
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/../lib/jasmine-html.js</url>
-          <line>538</line>
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://D:/workspace/trunk/p/snsdk/src/widget/sharebtn.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="52" selection-start="1398" selection-end="1398" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/workspace/trunk/p/snsdk/src/core/widget.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="157" column="14" selection-start="4072" selection-end="4072" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/workspace/trunk/p/snsdk/core.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="17" selection-start="481" selection-end="481" vertical-scroll-proportion="-1.3136942">
-          <folding>
-            <marker date="1338258296797" expanded="true" signature="-1:-1" placeholder="/**...*/" />
-            <marker date="1338258296797" expanded="true" signature="-1:-1" placeholder="/*...*/" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/workspace/trunk/p/snsdk/src/widget/share.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="629" column="36" selection-start="25071" selection-end="25071" vertical-scroll-proportion="-0.8">
-          <folding />
-        </state>
+        <state line="629" column="36" selection-start="25071" selection-end="25071" vertical-scroll-proportion="-0.8" />
       </provider>
     </entry>
     <entry file="file://D:/workspace/trunk/p/snsdk/src/widget/like.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="263" column="22" selection-start="6726" selection-end="6736" vertical-scroll-proportion="-11.2">
-          <folding />
-        </state>
+        <state line="263" column="22" selection-start="6726" selection-end="6736" vertical-scroll-proportion="-11.2" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/record/events.js">
+    <entry file="file://$PROJECT_DIR$/record/innerhtml.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="141" column="12" selection-start="3288" selection-end="4958" vertical-scroll-proportion="-2.4">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/record/testiframe.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="181" column="9" selection-start="4646" selection-end="4646" vertical-scroll-proportion="-9.230769">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/record/record.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="436" column="0" selection-start="8918" selection-end="8918" vertical-scroll-proportion="-14.509804">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/record/attrs.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="0" selection-start="2269" selection-end="2269" vertical-scroll-proportion="-13.6">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/record/core.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="850" column="15" selection-start="27589" selection-end="27589" vertical-scroll-proportion="-60.36">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/record/position.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="16" selection-start="62" selection-end="62" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/record/tags.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="57" selection-start="0" selection-end="786" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="16" column="93" selection-start="577" selection-end="577" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/record/subtree.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="80" selection-start="465" selection-end="465" vertical-scroll-proportion="0.0">
+        <state line="11" column="80" selection-start="465" selection-end="465" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../test/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="68" column="45" selection-start="1530" selection-end="1530" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/record/tags.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="30" selection-start="173" selection-end="175" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../lib/jasmine.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2189" column="66" selection-start="62392" selection-end="62447" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../lib/jasmine-html.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="434" column="4" selection-start="13410" selection-end="15205" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../lib/matcher.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="318" column="54" selection-start="10302" selection-end="10308" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
+        <state line="298" column="18" selection-start="9600" selection-end="9610" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../test/index.html">
+    <entry file="file://$PROJECT_DIR$/record/events.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="45" selection-start="1530" selection-end="1530" vertical-scroll-proportion="-40.0">
+        <state line="340" column="0" selection-start="10998" selection-end="10998" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://D:/workspace/trunk/p/snsdk/src/core/sns.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="141" column="9" selection-start="3896" selection-end="4225" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/record/innerhtml.js">
+    <entry file="file://$PROJECT_DIR$/record/position.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="89" selection-start="527" selection-end="527" vertical-scroll-proportion="0.3903904">
+        <state line="7" column="0" selection-start="182" selection-end="182" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/record/attrs.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="83" column="0" selection-start="2527" selection-end="2527" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/record/testiframe.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="56" selection-start="1030" selection-end="1030" vertical-scroll-proportion="63.846153">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/record/record.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="402" column="93" selection-start="8718" selection-end="8729" vertical-scroll-proportion="-15.923077">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/record/core.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="401" column="35" selection-start="13502" selection-end="13502" vertical-scroll-proportion="0.36753446">
           <folding />
         </state>
       </provider>

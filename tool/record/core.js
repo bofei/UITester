@@ -2,6 +2,22 @@
     //重置setTimeout,setInterval
     // ajax等异步方法
     var S = KISSY, D = S.DOM, E = S.Event;
+    var buildUrl = function () {
+
+        var args = Array.prototype.slice.call(arguments);
+
+        if (args.length < 2) {
+            return args[0] || '';
+        }
+
+        var uri = args.shift();
+
+        uri += uri.indexOf('?') > 0 ? '&' : '?';
+
+        return uri + args.join('&').replace(/&+/g, '&');
+
+    }
+
     window.uitest = {};
     uitest.jsonPath = function (obj, expr, arg) {
         var P = {
@@ -332,37 +348,80 @@
             this.caseTypeEvent();
             this.tagsConfigsView();
             this.positionConfigsView();
-            this.centerConfigsView();
-            this.styleConfigsView();
+            // this.centerConfigsView();
+            //this.styleConfigsView();
             this.innerHTMLConfigsView();
-            this.subTreeConfigsView();
+            //   this.subTreeConfigsView();
 
             this.attrConfigsView();
             this.eventConfigsView();
             this.runTestCaseEvent()
             this.createEventTest();
+            // this.initForm();
+
+
+        },
+        initForm:function () {
 
 
         },
         initPage:function () {
-            var iframe = D.get("#iframe-target");
-            iframe.src = D.get("#url").value;
-            E.on("#reload", "click", function () {
-                iframe.src = D.get("#url").value;
-            })
-            E.on(iframe, "load", function () {
 
+
+            // http://uitest.taobao.net/UITester/tool/query.php?task_id=7
+
+            var idEl = D.get("#task_id");
+            var nameEl = D.get("#task_name");
+            var task_target_url = D.get("#task_target_uri");
+            var iframe = D.get("#iframe-target");
+
+
+            S.io.getJSON("http://uitest.taobao.net/UITester/tool/query.php", {task_id:location.hash}, function (result) {
+                idEl.value = result.id;
+                nameEl.value = result.task_name;
+                task_target_url.value = buildUrl(result.task_target_url, "inject-type=record&__TEST__");
+
+                iframe.src = task_target_url.value;
+
+            })
+
+
+            var host = this;
+            E.on(".show-login", "click", function () {
+                var t = D.get(".login-info");
+
+                if (t.style.display === "none") {
+                    t.style.display = "inline"
+                }
+                else {
+                    t.style.display = "none"
+                }
+            })
+
+            E.on("#save-test", "click", function () {
+                D.get("#task_script").value = host.textEditor.textModel.text;
+                D.get('#save-form').submit();
+            })
+
+            E.on("#reload", "click", function () {
+                E.detach(iframe, "load");
+                iframe.src = buildUrl(result.task_target_url, "inject-type=record&__TEST__");
             })
 
 
         },
 
         initTabs           :function () {
-            new S.Tabs('.tabs', {
+            this.codeTabs = new S.Tabs('.tabs', {
                 // aria:false 默认 true，支持 aria
                 switchTo   :0,
                 triggerType:"click"
             });
+        },
+        showResult         :function (result) {
+            this.codeTabs.switchTo(1);
+            var div = this.codeTabs.panels[1];
+            div.innerHTML = JSON.stringify(result)
         },
         runTestCaseEvent   :function () {
             var host = this;
@@ -681,35 +740,61 @@
     }
 
     uitest.inner = {
-        init               :function () {
+        init     :function () {
+
             var host = this;
+            this.initProxy();
             this.observeCall();
             this.selectorChangeEvent();
             var warning = true;
-            /*  window.onbeforeunload = function () {
+            /*window.onbeforeunload = function () {
              if (warning) {
              return '';
              }
              }
              */
 
+
         },
+        initProxy:function () {
+            var realAdd = window.Node.prototype.addEventListener;
+            window.Node.prototype.addEventListener = function () {
+                if (arguments[3]) {
+                    realAdd.apply(this, arguments)
+                }
+                else {
+                    this._bindEventType = this._bindEventType || {};
+                    this._bindEventType[arguments[0]] = 1;
+                    realAdd.apply(this, arguments)
+                }
+
+            }
+        },
+
         createEventTestCase:function () {
 
         },
         runTestCase        :function (src) {
+            var host = this;
             eval(src);
             (function () {
                 var jasmineEnv = jasmine.getEnv();
                 jasmineEnv.updateInterval = 1000;
 
-                var htmlReporter = new jasmine.HtmlReporter();
+                /*  var htmlReporter = new jasmine.HtmlReporter();
+
+                 jasmineEnv.addReporter(htmlReporter);
+
+                 jasmineEnv.specFilter = function (spec) {
+                 return htmlReporter.specFilter(spec);
+                 };
+                 */
+                var htmlReporter = new jasmine.JsonReporter(function (json) {
+                    console.log(json)
+                    host.outterCall("showResult", [json]);
+                });
 
                 jasmineEnv.addReporter(htmlReporter);
-
-                jasmineEnv.specFilter = function (spec) {
-                    return htmlReporter.specFilter(spec);
-                };
 
 
                 jasmineEnv.execute();

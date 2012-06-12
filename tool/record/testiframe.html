@@ -13,6 +13,19 @@
     <script src="../../lib/jasmine-html.js"></script>
     <script src="../../lib/event-simulate.js"></script>
     <script src="../../lib/matcher.js"></script>
+    <script src="./core.js" charset="utf-8"></script>
+    <script>
+        uitest.inner.init();
+    </script>
+    <script src="./events.js" charset="utf-8"></script>
+    <script src="./attrs.js" charset="utf-8"></script>
+    <script src="./tags.js" charset="utf-8"></script>
+    <script src="./position.js" charset="utf-8"></script>
+    <script src="./center.js" charset="utf-8"></script>
+    <script src="./style.js" charset="utf-8"></script>
+    <script src="./innerhtml.js" charset="utf-8"></script>
+    <script src="./subtree.js" charset="utf-8"></script>
+
     <script src="http://a.tbcdn.cn/p/snsdk/core.js"></script>
     <style>
 
@@ -27,22 +40,7 @@
 
     </style>
     <script>
-        var realAdd = window.Node.prototype.addEventListener;
 
-
-        window.Node.prototype.addEventListener = function () {
-
-
-            if (arguments[3]) {
-                realAdd.apply(this, arguments)
-            }
-            else {
-                this._bindEventType = this._bindEventType || {};
-                this._bindEventType[arguments[0]] = 1;
-                realAdd.apply(this, arguments)
-            }
-
-        }
 
     </script>
 </head>
@@ -182,18 +180,7 @@
 </script>
 -->
 
-<script src="./core.js" charset="utf-8"></script>
-<script>
-    uitest.inner.init();
-</script>
-<script src="./events.js" charset="utf-8"></script>
-<script src="./attrs.js" charset="utf-8"></script>
-<script src="./tags.js" charset="utf-8"></script>
-<script src="./position.js" charset="utf-8"></script>
-<script src="./center.js" charset="utf-8"></script>
-<script src="./style.js" charset="utf-8"></script>
-<script src="./innerhtml.js" charset="utf-8"></script>
-<script src="./subtree.js" charset="utf-8"></script>
+
 
 </body>
 </html>
