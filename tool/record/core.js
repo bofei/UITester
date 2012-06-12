@@ -380,9 +380,9 @@
             S.io.getJSON("http://uitest.taobao.net/UITester/tool/query.php", {task_id:location.hash.substring(1)}, function (result) {
                 idEl.value = result.id;
                 nameEl.value = result.task_name;
-                task_target_url.value = buildUrl(result.task_target_url, "inject-type=record&__TEST__");
+                task_target_url_el.value = result.task_target_uri;
 
-                iframe.src = task_target_url.value;
+                iframe.src = task_target_url_el.value;
                 S.io.get(result.task_inject_uri, function (result) {
                     host.textEditor.textModel.setText(null, result.responseText)
                 })
