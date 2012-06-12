@@ -340,9 +340,10 @@
     uitest.outter = {
         init    :function () {
             var host = this;
+            this.codeEditor();
             this.initPage();
             this.observeCall();
-            this.codeEditor();
+
             this.layout();
             this.initTabs();
             this.caseTypeEvent();
@@ -366,13 +367,13 @@
 
         },
         initPage:function () {
-
+            var host = this;
 
             // http://uitest.taobao.net/UITester/tool/query.php?task_id=7
 
             var idEl = D.get("#task_id");
             var nameEl = D.get("#task_name");
-            var task_target_url = D.get("#task_target_uri");
+            var task_target_url_el = D.get("#task_target_uri");
             var iframe = D.get("#iframe-target");
 
 
@@ -382,8 +383,24 @@
                 task_target_url.value = buildUrl(result.task_target_url, "inject-type=record&__TEST__");
 
                 iframe.src = task_target_url.value;
+                S.io.get(result.task_inject_uri, function (result) {
+                    host.textEditor.textModel.setText(null, result.responseText)
+                })
 
             })
+
+
+            /*var result = { "id":"7", "task_name":"道璘添加", "task_target_uri":"http://www.taobao.com/", "task_inject_uri":"http://uitest.taobao.net/UITester/case/7.js" }
+
+             idEl.value = result.id;
+             nameEl.value = result.task_name;
+             task_target_url_el.value = result.task_target_uri;
+
+             iframe.src = task_target_url_el.value;
+             host.textEditor.textModel.setText(null, "1231231213132")
+
+
+             */
 
 
             var host = this;
@@ -405,7 +422,7 @@
 
             E.on("#reload", "click", function () {
                 E.detach(iframe, "load");
-                iframe.src = buildUrl(result.task_target_url, "inject-type=record&__TEST__");
+                iframe.src = buildUrl(task_target_url_el.value, "inject-type=record&__TEST__");
             })
 
 

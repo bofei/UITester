@@ -25,7 +25,7 @@
       <file leaf-file-name="record.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/record/record.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="402" column="93" selection-start="8718" selection-end="8729" vertical-scroll-proportion="14.615385">
+            <state line="402" column="52" selection-start="8677" selection-end="8677" vertical-scroll-proportion="-11.730769">
               <folding />
             </state>
           </provider>
@@ -70,7 +70,7 @@
       <file leaf-file-name="core.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/record/core.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="379" column="39" selection-start="12852" selection-end="12852" vertical-scroll-proportion="0.55130166">
+            <state line="379" column="12" selection-start="12722" selection-end="12722" vertical-scroll-proportion="0.42834395">
               <folding />
             </state>
           </provider>
@@ -140,8 +140,8 @@
         <option value="$PROJECT_DIR$/record/attrs.js" />
         <option value="$PROJECT_DIR$/record/tags.js" />
         <option value="$PROJECT_DIR$/record/position.js" />
-        <option value="$PROJECT_DIR$/record/record.html" />
         <option value="$PROJECT_DIR$/../lib/matcher.js" />
+        <option value="$PROJECT_DIR$/record/record.html" />
         <option value="$PROJECT_DIR$/record/core.js" />
       </list>
     </option>
@@ -354,11 +354,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/record/position.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="182" selection-end="182" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/record/attrs.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="83" column="0" selection-start="2527" selection-end="2527" vertical-scroll-proportion="0.0" />
@@ -371,6 +366,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/record/record.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="402" column="52" selection-start="8677" selection-end="8677" vertical-scroll-proportion="-11.730769">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/record/testiframe.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="26" column="56" selection-start="1030" selection-end="1030" vertical-scroll-proportion="63.846153">
@@ -378,16 +380,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/record/record.html">
+    <entry file="file://$PROJECT_DIR$/record/position.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="402" column="93" selection-start="8718" selection-end="8729" vertical-scroll-proportion="14.615385">
-          <folding />
-        </state>
+        <state line="7" column="0" selection-start="182" selection-end="182" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/record/core.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="379" column="39" selection-start="12852" selection-end="12852" vertical-scroll-proportion="0.55130166">
+        <state line="379" column="12" selection-start="12722" selection-end="12722" vertical-scroll-proportion="0.42834395">
           <folding />
         </state>
       </provider>
