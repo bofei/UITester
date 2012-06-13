@@ -4,7 +4,10 @@
     <file url="file://$PROJECT_DIR$/../lib/jasmine.js" charset="GBK" />
     <file url="file://$PROJECT_DIR$/../lib/matcher.js" charset="GBK" />
     <file url="file://$PROJECT_DIR$/../test/index.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/list.php" charset="GBK" />
     <file url="file://$PROJECT_DIR$/record/record.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/../../ut/UITester/tool/list.php" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/../../ut/UITester/tool/record/record.html" charset="GBK" />
     <file url="file://D:/workspace/trunk/p/snsdk/core.js" charset="GBK" />
     <file url="file://D:/workspace/trunk/p/snsdk/demo/setwidget.js" charset="GBK" />
     <file url="file://D:/workspace/trunk/p/snsdk/src/core/active.js" charset="GBK" />

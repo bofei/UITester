@@ -11,7 +11,7 @@
         <div id="content">
 
             <div class="case-list">
-                <a href="modify.php" class="add-case">添加用例</a>
+                <a href="http://uitest.taobao.net/UITester/tool/record/record.html" class="add-case">添加用例</a>
 
                 <table class="case-table">
                     <colgroup>
@@ -38,7 +38,7 @@
                                 <tr>
                                     <td>' . $result_item['task_name'] . '</td>
                                     <td>
-                                        <a href="modify.php?task_id=' . $result_item['id'] . '" class="J_Edit">修改</a>
+                                        <a href="http://uitest.taobao.net/UITester/tool/record/record.html#' . $result_item['id'] . '" class="J_Edit">修改</a>
                                         <a href="handle.php?modify_tag=remove&task_id=' . $result_item['id'] . '" class="J_Remove">删除</a>
                                         <a href="apply.php?task_id=' . $result_item['id'] . '" class="J_Run" target="_blank">启动测试</a>
                                     </td>
